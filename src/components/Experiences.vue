@@ -3,7 +3,7 @@
         <div class="relative">
             <h1 class="relative text-2xl font-semibold text-white border-b-6 leading-none mr-4">Expériences & Intérêts</h1>
         </div>
-        <div class="flex inline-block relative overflow-scroll text-white mt-2">
+        <div class="flex inline-block relative overflow-auto text-white mt-2">
             <span @click="filterType = null" :class="{'selected': !filterType }" class="relative filter-item mr-4 cursor-pointer">Tous</span>
             <span @click="filterType = 'experience'" :class="{'selected' : filterType === 'experience' }" class="relative filter-item mr-4 cursor-pointer">Expériences</span>
             <span @click="filterType = 'interest'" :class="{'selected': filterType === 'interest' }" class="relative filter-item mr-4 cursor-pointer">Centres d'intérêt</span>

@@ -86,7 +86,7 @@
             <div class="header flex sm:hidden md:hidden lg:hidden xl:hidden">
                 <Header />
             </div>
-            <div class="body h-full py-0 md:py-4 lg:py-8 px-0 sm:px-2 md:px-4 lg:px-6 lg:px-8 mt-12 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 overflow-scroll">
+            <div class="body h-full py-0 md:py-4 lg:py-8 px-0 sm:px-2 md:px-4 lg:px-6 lg:px-8 mt-12 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 overflow-auto">
                 <Projects />
                 <Skills />
                 <Experiences />

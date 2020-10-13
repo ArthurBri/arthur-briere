@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-wrap items-center justify-between mt-12 mx-8 md:mx-4 m-4">
         <div class="py-1 text-2xl font-bold text-white border-b-6 leading-none mr-4">Compétences</div>
-        <div class="flex inline-block relative overflow-scroll text-white mt-2">
+        <div class="flex inline-block relative overflow-auto text-white mt-2">
             <span @click="skillsTypeFilter = null" :class="{'selected': !skillsTypeFilter }" class="relative filter-item mr-4 cursor-pointer">Toutes</span>
             <span @click="skillsTypeFilter = 'technical'" :class="{'selected': skillsTypeFilter === 'technical' }"  class="relative filter-item mr-4 cursor-pointer">Techniques</span>
             <span @click="skillsTypeFilter = 'human'" :class="{'selected': skillsTypeFilter === 'human' }" class="relative filter-item mr-4 cursor-pointer">Humaines</span>

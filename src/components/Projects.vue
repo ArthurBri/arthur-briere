@@ -3,7 +3,7 @@
         <div class="relative">
             <h1 class="relative text-2xl font-semibold text-green-800 border-b-6 dark:border-green-800 leading-none">Projets</h1>
         </div>
-        <ul class="flex inline-block relative overflow-scroll">
+        <ul class="flex inline-block relative overflow-auto">
             <li @click="projectYearFilter = null" :class="{'selected': !projectYearFilter }" class="relative filter-item mx-2 cursor-pointer">Tous</li>
             <li @click="projectYearFilter = '2020'" :class="{'selected' : projectYearFilter === '2020' }" class="relative filter-item mx-2 cursor-pointer">2020</li>
             <li @click="projectYearFilter = '2019'" :class="{'selected': projectYearFilter === '2019' }" class="relative filter-item mx-2 cursor-pointer">2019</li>
