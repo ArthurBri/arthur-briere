@@ -108,4 +108,7 @@
         @apply text-white;
     }
 
+    .header {
+        min-width: 320px;
+    }
 </style>

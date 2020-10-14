@@ -7,7 +7,15 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
   },
-  purge: [],
+  purge: {
+    enable: true,
+    content: [
+      './src/**/*.html',
+      './src/**/*.vue',
+      './src/**/*.jsx',
+      './src/**/*.ts'
+    ]
+  },
   theme: {
     extend: {
       screen: {

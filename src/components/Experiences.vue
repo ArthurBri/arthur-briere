@@ -1,8 +1,6 @@
 <template>
     <div class="flex flex-wrap items-center content-center justify-between mt-12 mx-8 md:mx-4 m-4">
-        <div class="relative">
-            <h1 class="relative text-2xl font-semibold text-white border-b-6 leading-none mr-4">Expériences & Intérêts</h1>
-        </div>
+        <h1 class="relative text-2xl font-semibold text-white border-b-6 leading-none mr-4">Expériences & Intérêts</h1>
         <div class="flex inline-block relative overflow-auto text-white mt-2">
             <span @click="filterType = null" :class="{'selected': !filterType }" class="relative filter-item mr-4 cursor-pointer">Tous</span>
             <span @click="filterType = 'experience'" :class="{'selected' : filterType === 'experience' }" class="relative filter-item mr-4 cursor-pointer">Expériences</span>
@@ -11,7 +9,7 @@
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-4 justify-center">
         <transition-group name="projects">
-            <div class="relative flex items-start bg-white rounded-lg shadow-lg mx-2 dark:bg-gray-800 dark:text-white bg-gradient-to-br dark:from-gray-700 dark:to-gray-600" v-for="(project, index) in filteredExperiences" :key="index">
+            <div class="card relative flex items-start rounded-lg shadow-lg mx-2 dark:text-white" v-for="(project, index) in filteredExperiences" :key="index">
                 <div class="p-4 flex flex-col">
                     <div class="flex">
                         <div class="w-full flex flex-col items-start justify-start">
@@ -42,7 +40,11 @@
             return {
                 experiences: [
                     { name: `Europ'Raid`, type: 'experience', year: '2017', description: `Récolte de 6000€ pour un 4L Trophy like à travers 23 pays d'Europe en 3 semaines.`, tags: ['Gestion de projet', 'Voyage']},
+                    { name: `Tuteur de stage`, type: 'experience', year: '2020', description: `Tuteur de stage sur un projet initié en interne chez Sword.`, tags: ['Gestion de projet', 'Travail d\'équipe']},
                     { name: `Photographie`, type: 'interest', description: `Passion pour les couleurs, les formes et les harmonies. Photographies de voyage, de bâtiments ou de grand espaces.`},
+                    { name: `Minimalisme`, type: 'interest', description: `A la recherche de simplicité. Adapte du "Less is more."`},
+                    { name: `Course à pied`, type: 'interest', description: `Je cours régulièrement. Inscrit au Marathon de Paris 2021 !`},
+                    { name: `Formation`, type: 'interest', description: `Je lis tous les jours des articles de blogs technos, ce qui me permet de m'ouvrir en tendance. En parallèle, je me forme sur Typescript et Vue 3 !`},
                          ],
                 filterType: null,
             }
@@ -89,5 +91,11 @@
         @apply block bg-white rounded-full absolute;
         width: 100%;
         left: 0;
+    }
+
+    .card {
+        @apply bg-white bg-opacity-75 dark:bg-gray-800;
+        backdrop-filter: blur(5px);
+        z-index: 1;
     }
 </style>
