@@ -1,5 +1,5 @@
 <template>
-    <div class="app body flex">
+    <div class="app flex">
         <Sidebar />
         <div class="main-content max-h-screen max-w-full">
             <div class="header flex sm:hidden md:hidden lg:hidden xl:hidden">
@@ -34,9 +34,10 @@
     }
 </script>
 
-<style>
+<style lang="scss">
+    @import "src/index.scss";
     .app {
-        @apply bg-auto bg-green-800;
+        @apply bg-auto bg-green-800 h-screen overflow-hidden;
         min-width: 320px;
         background: url('https://www.linuxfoundation.org/wp-content/uploads/2016/12/lf_background_trees.jpg');
         background-size: cover;
@@ -44,7 +45,7 @@
 
     @media (min-width: 640px) {
         .main-content {
-            width: calc(100vw - 350px);
+            width: calc(100vw - #{$sidebar-width});
         }
     }
 

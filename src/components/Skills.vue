@@ -82,7 +82,7 @@
         bottom: 0;
         content: "";
         display: block;
-        height: 1.5px;
+        height: 2px;
         left: 50%;
         position: absolute;
         transition: width 0.3s ease 0s, left 0.3s ease 0s;
@@ -93,7 +93,7 @@
         @apply block bg-white rounded-full absolute;
         left: 0;
         content: "";
-        height: 1.5px;
+        height: 2px;
         width: 100%;
     }
 

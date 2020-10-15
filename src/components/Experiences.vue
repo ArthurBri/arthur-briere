@@ -10,7 +10,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-4 justify-center">
         <transition-group name="projects">
             <div class="card relative flex items-start rounded-lg shadow-lg mx-2 dark:text-white" v-for="(project, index) in filteredExperiences" :key="index">
-                <div class="p-4 flex flex-col">
+                <div class="p-4 flex flex-col justify-between h-full">
                     <div class="flex">
                         <div class="w-full flex flex-col items-start justify-start">
                             <div class="flex justify-start items-center">
@@ -20,8 +20,8 @@
                             <span class="text-justify">{{ project.description }}</span>
                         </div>
                     </div>
-                    <div class="tags flex flex-wrap">
-                        <div class="text-xs bg-blue-200 rounded-lg p-1 px-2 m-1 dark:text-black" v-for="tag in project.tags">
+                    <div class="tags flex flex-wrap mt-2">
+                        <div class="text-xs bg-blue-300 shadow rounded-lg p-1 px-2 mr-2 mb-1 dark:text-black" v-for="tag in project.tags">
                             {{ tag }}
                         </div>
                     </div>
@@ -72,7 +72,7 @@
         bottom: 0;
         content: "";
         display: block;
-        height: 1.5px;
+        height: 2px;
         left: 50%;
         position: absolute;
         transition: width 0.3s ease 0s, left 0.3s ease 0s;
@@ -83,7 +83,7 @@
         @apply block bg-white rounded-full absolute;
         left: 0;
         content: "";
-        height: 1.5px;
+        height: 2px;
         width: 100%;
     }
 

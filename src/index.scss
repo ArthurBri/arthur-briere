@@ -1,0 +1,105 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  @apply text-ab-gray;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  border-radius: 20px;
+  border: 7px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-opacity-85 dark:bg-gray-800 rounded-full;
+  backdrop-filter: blur(5px);
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+$sidebar-width: 350px;
+
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+@tailwind utilities;
+
+.animate-text {
+  @apply text-green-800 dark:text-green-400 opacity-50 hover:opacity-100 animate-scale font-bold cursor-pointer outline-none;
+  display: inline-block;
+  position: relative;
+}
+
+.animate-text:focus { outline: 0; }
+
+.animate-text:before, .animate-text:after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 140%;
+  height: 100%;
+  left: -20%;
+  z-index: -1000;
+  transition: all ease-in-out 0.5s;
+  background-repeat: no-repeat;
+}
+
+.animate-text:before {
+  display: none;
+  top: -75%;
+  background-image: radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, transparent 20%, green 20%, transparent 30%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, transparent 10%, green 15%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+
+.animate-text:after {
+  display: none;
+  bottom: -75%;
+  background-image: radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, transparent 10%, green 15%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+
+.animate-text:active {
+  transform: scale(0.9);
+}
+
+.animate-text.animate:before {
+  display: block;
+  animation: topBubbles ease-in-out 0.75s forwards;
+}
+
+.animate-text.animate:after {
+  display: block;
+  animation: bottomBubbles ease-in-out 0.75s forwards;
+}
+@keyframes
+topBubbles {  0% {
+  background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+}
+  50% {
+    background-position: 0 80%, 0 20%, 10% 40%, 20% 0, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+  }
+  100% {
+    background-position: 0 70%, 0 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+    background-size: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
+  }
+}
+@keyframes
+bottomBubbles {  0% {
+  background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0;
+}
+  50% {
+    background-position: 0 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0;
+  }
+  100% {
+    background-position: 0 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+    background-size: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0 ;
+  }
+}
+
+.animate-scale {
+  @apply transition duration-300 ease-in-out transform hover:scale-110;
+}

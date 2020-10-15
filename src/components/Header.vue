@@ -47,14 +47,28 @@
             </div>
     </div>
     <div class="menu fixed w-full z-30 overflow-scroll" style="background: rgba(39, 103, 73, 0.8);backdrop-filter: blur(5px)" :class="menuVisible ? 'block': 'hidden'">
-        <div class="flex justify-center items-center">
-        <img class="mt-8 rounded-full transition duration-500 ease-in-out transform hover:scale-105 shadow-lg border-white border-4"
+        <div class="flex justify-center items-center mt-8">
+        <img class=" rounded-full transition duration-500 ease-in-out transform hover:scale-105 shadow-lg border-white border-4"
              style="height:80px;"
              src="../assets/profile-pic.jpg" alt="Arthur Brière portrait"/>
+          <div class="text-base px-4 h-full flex flex-col items-center justify-center">
+            <p class="text-center dark:text-white"><span class="animate-text">Développeur</span> de 24 ans</p>
+            <div class="text-center flex justify-center dark:text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-2 stroke-current"
+                   width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#03A9F4" fill="none"
+                   stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <line x1="18" y1="6" x2="18" y2="6.01"/>
+                <path d="M18 13l-3.5 -5a4 4 0 1 1 7 0l-3.5 5"/>
+                <polyline points="10.5 4.75 9 4 3 7 3 20 9 17 15 20 21 17 21 15"/>
+                <line x1="9" y1="4" x2="9" y2="17"/>
+                <line x1="15" y1="15" x2="15" y2="20"/>
+              </svg>
+              <span class="ml-2">Rennes, France</span></div>
+          </div>
         </div>
         <div class="text-gray-200">
             <div class="text-base text-justify px-4 mt-4">
-                <p class="mb-4 text-center"><span class="animate-text">Développeur</span> de 24 ans (mais pas que)</p>
                 <p class="leading-loose">Je soigne l'aspect <span class="animate-text">créatif</span> de mes projets. Je
                     suis passionné à l'idée de résoudre les problèmes des gens par des solutions qu'ils n'avaient pas
                     imaginées. Lorsque je n'y arrive pas, je fais de mon mieux pour les traiter avec soin et qualité.
