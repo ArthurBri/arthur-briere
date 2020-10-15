@@ -83,7 +83,7 @@
                 </div>
             </div>
         </div>
-        <div class="sidebar-end text-white text-sm px-4">
+        <div class="sidebar-end text-gray-500 text-sm px-4">
             Développé en Vue.js, TypeScript, et TailwindCSS
         </div>
     </div>

@@ -36,24 +36,28 @@
                 <div class="flex">
                 <div class="w-2/3 flex flex-col items-start justify-start">
                     <div class="flex justify-start items-center">
-                    <span class="font-bold text-left text-2xl">{{ project.name }}</span>
+                        <div class="flex w-full items-center justify-between">
+                    <span class="font-bold text-left text-gray-800 dark:text-gray-200 text-2xl leading-tight">{{ project.name }}</span>
                     <span class="font-bold text-sm ml-4">{{ project.year }}</span>
+                        <div class="ml-2" v-if="project.type === 'build'" title="En construction">👨‍💻</div>
+                        </div>
                     </div>
-                    <span class="text-justify">{{ project.description }}</span>
+                    <span class="text-justify ">{{ project.description }}</span>
                 </div>
                 <div v-if="project.logo" class="w-1/3 ml-6 flex justify-start items-start">
-                    <div class="border-gray-400 border-2 shadow rounded-lg p-2">
-                        Logo du projet (à venir)
+                    <div class="border-gray-400 border-2 shadow bg-white rounded-lg p-2">
+                        <img class="h-1/2" :src="project.logo">
                     </div>
                 </div>
                 </div>
-                <div class="tags flex flex-wrap">
+                <div class="tags flex flex-wrap mt-2">
                     <div class="text-xs bg-green-200 dark:text-black rounded-lg p-1 px-2 m-1" v-for="(tag, index) in project.tags">
                         {{ tag }}</div>
                 </div>
             </div>
         </div>
         </div>
+    <div class="flex mt-4 ml-2 sm:text-xl md:text-xl lg:text-xl xl:text-lg text-white">👨‍💻 : en construction</div>
 </template>
 
 <script>
@@ -66,12 +70,12 @@ export default {
     return {
       projects: [
           { name: 'Portfolio', year: '2020', type: 'here', description: `Présentation de mon profil, de mes compétences et de ma philosophie`, tags: ['Vue 3', 'Typescript', 'Tailwind CSS', 'Vitejs'], logo: false},
-          { name: 'Vinaigre', year: '2020', type: 'build', description: `Application de gestion des tâches quotidiennes`, tags: ['Vue 3', 'Node.js', 'Tailwind CSS']},
-          { name: 'Compote', year: '2020', type: 'private', description: `Outil d'industrialisation interne dans le domaine de la CCM`, tags: ['Electron', 'Vue 2', 'Node.js', 'Tailwind CSS', 'Element UI', 'Webpack']},
-          { name: 'Onigi', year: '2020', type: 'build', description: `Plateforme de vente de producteurs locaux à consommateurs`,  tags: ['Tailwind CSS', 'Vue 2', 'Nuxt', 'Strapi.js', 'Mongo DB', 'iView']},
-          { name: 'MA Vitesse', year: '2019', type: 'public', description: `Outil de calcul intelligent de vitesse`, url:'http://ma-vitesse-dev.herokuapp.com/', tags: ['Tailwind CSS', 'Vue 2', 'Mongo DB', 'Heroku']},
-          { name: 'Geckoop', year: '2019', type: 'public', description: `Outil de génération d'étiquettes pour l'épicerie coopérative rennaise Breizhicoop`, logo: './assets/projects/geckoop-logo.png', url:'https://geckoop-dev.breizhicoop.fr/', tags: ['jQuery', 'Bulma', 'Django', 'Python']},
-          { name: 'Clinique du Droit Rouen', year: '2017', type: 'public', description: `Mise en place d'un site web pour une association étudiante`, url: 'https://www.cliniquedudroitrouen.fr', tags: ['Wordpress'] }
+          { name: 'Vinaigre', year: '2020', type: 'build', description: `Application de gestion des tâches quotidiennes`, logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1602745084/logo-vinaigre_udqhxc.png', tags: ['Vue 3', 'Node.js', 'Tailwind CSS']},
+          { name: 'Compote', year: '2020', type: 'private', description: `Outil d'industrialisation interne dans le domaine de la CCM`, logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1602745430/logo_label_-_Copie_lmaip2.png', tags: ['Electron', 'Vue 2', 'Node.js', 'Tailwind CSS', 'Element UI', 'Webpack']},
+          { name: 'Onigi', year: '2020', type: 'build', description: `Plateforme de vente de producteurs locaux à consommateurs`, logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1602745181/icon_coarni.png', tags: ['Tailwind CSS', 'Vue 2', 'Nuxt', 'Strapi.js', 'Mongo DB', 'iView']},
+          { name: 'MA Vitesse', year: '2019', type: 'public', description: `Outil de calcul intelligent de vitesse`, url:'http://ma-vitesse-dev.herokuapp.com/', logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_10/v1602744686/logo.2e3abfc1_rscrzc.svg', tags: ['Tailwind CSS', 'Vue 2', 'Mongo DB', 'Heroku', 'PWA']},
+          { name: 'Geckoop', year: '2019', type: 'public', description: `Outil de génération d'étiquettes pour l'épicerie coopérative rennaise Breizhicoop`, logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1602744275/geckoop-logo_cyg625.png', url:'https://geckoop-dev.breizhicoop.fr/', tags: ['jQuery', 'Bulma', 'Django', 'Python', 'Odoo']},
+          { name: 'Clinique du Droit Rouen', year: '2017', type: 'public', description: `Mise en place d'un site web pour une association étudiante`, logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1602744457/logo_CDR_na4viw.png', url: 'https://www.cliniquedudroitrouen.fr', tags: ['Wordpress'] }
       ],
       projectYearFilter: null,
     }
@@ -125,7 +129,7 @@ export default {
     }
 
     .card {
-        @apply bg-opacity-75 dark:bg-gray-800;
+        @apply bg-opacity-85 dark:bg-gray-800;
         backdrop-filter: blur(5px);
         z-index: 1;
     }

@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="flex justify-start flex-wrap">
-        <div class="card flex items-center bg-white rounded-lg shadow-lg mx-2 mb-2 p-2 dark:bg-gray-800 dark:text-white" v-for="(skill, index) in filteredSKills"
+        <div class="card flex items-center bg-white rounded-lg shadow-lg transform transition-all duration-500 hover:-translate-y-1 mx-2 mb-2 p-2 dark:bg-gray-800 dark:text-white" v-for="(skill, index) in filteredSKills"
              :key="index">
             <div class="flex items-center justify-center">
                 <span class="font-semibold">{{ skill.name }}</span>
