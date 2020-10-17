@@ -1,6 +1,6 @@
 <template>
-    <div class="flex flex-wrap items-center justify-between mt-12 mx-8 md:mx-4 m-4">
-        <div class="text-2xl font-bold text-white border-b-6 leading-none mr-4">Compétences</div>
+    <div class="flex flex-wrap items-center content-center justify-between mt-12 mx-8 md:mx-4 m-4">
+        <h1 class="relative text-2xl font-semibold text-white border-b-6 leading-none mr-4">Compétences</h1>
         <div class="flex inline-block relative overflow-auto text-white mt-2">
             <span @click="skillsTypeFilter = null" :class="{'selected': !skillsTypeFilter }" class="relative filter-item mr-4 cursor-pointer">Toutes</span>
             <span @click="skillsTypeFilter = 'technical'" :class="{'selected': skillsTypeFilter === 'technical' }"  class="relative filter-item mr-4 cursor-pointer">Techniques</span>
@@ -49,6 +49,7 @@
                     {name: 'Wordpress', type: 'technical', stars: 3},
                     {name: 'Agilité', type: 'project', stars: 3.5},
                     {name: 'Git', type: 'project', stars: 3.5},
+                    {name: 'Gitlab', type: 'project', stars: 3.5},
                     {name: 'HTML', type: 'technical', stars: 4},
                     {name: 'CSS/SCSS', type: 'technical', stars: 4},
                     {name: 'Communication non violente', type: 'human', stars: 4},
@@ -61,6 +62,9 @@
                     {name: 'Autonomie', type: 'human'},
                     {name: 'Esprit d\'équipe', type: 'human'},
                     {name: 'Relation client', type: 'project'},
+                    {name: 'Qualité', type: 'project'},
+                    {name: 'Industrialisation', type: 'project'},
+                    {name: 'Planification', type: 'project'},
                 ],
                 skillsTypeFilter: null,
             }

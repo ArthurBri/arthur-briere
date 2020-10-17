@@ -52,8 +52,8 @@
              style="height:80px;"
              src="../assets/profile-pic.jpg" alt="Arthur Brière portrait"/>
           <div class="text-base px-4 h-full flex flex-col items-center justify-center">
-            <p class="text-center dark:text-white"><span class="animate-text">Développeur</span> de 24 ans</p>
-            <div class="text-center flex justify-center dark:text-white">
+            <p class="text-center text-gray-200 dark:text-white"><span class="animate-text">Développeur</span> de 24 ans</p>
+            <div class="text-center flex justify-center text-gray-200 dark:text-white">
               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-2 stroke-current"
                    width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#03A9F4" fill="none"
                    stroke-linecap="round" stroke-linejoin="round">

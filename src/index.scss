@@ -3,7 +3,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  @apply text-ab-gray;
+  @apply text-ab-gray transition duration-1000;
 }
 
 ::-webkit-scrollbar {

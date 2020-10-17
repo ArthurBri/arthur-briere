@@ -1,6 +1,6 @@
 <template>
     <div class="sidebar justify-between items-stretch hidden shadow-lg sm:flex md:flex lg:flex xl:flex flex-col justify-between items-start h-screen bg-gradient-to-b dark:from-gray-800 from-white p-4">
-        <div class="sidebar-start flex flex-col mt-8">
+        <div class="sidebar-start flex-1 flex-col mt-8">
             <div class="flex justify-center">
                 <div class="flex flex-col justify-center items-end mr-4 pr-2">
                     <div class="text-2xl leading-tight font-bold text-green-800 animate-scale">Arthur Brière</div>
@@ -66,16 +66,15 @@
                 <span class="ml-2">Rennes, France</span></div>
         </div>
     </div>
-      <div class="sidebar-middle my-4 overflow-auto flex flex-col h-full justify-between">
+      <div class="sidebar-middle my-4 overflow-auto overflow-x-hidden flex flex-col h-full justify-between">
         <p class="leading-loose text-justify dark:text-white px-2 mb-2">Je soigne l'aspect <span class="animate-text">créatif</span> de
-          mes projets. Je suis passionné à l'idée de résoudre les problèmes des gens par des solutions qu'ils n'avaient pas
-          imaginées. Lorsque je n'y arrive pas, je fais de mon mieux pour les traiter avec soin et qualité.
-          J'aime <span class="animate-text">concevoir</span>, imaginer et <span
+            mes projets. Je suis passionné à l'idée de résoudre les problèmes des gens par des <span class="animate-text">solutions</span> qu'ils n'avaient pas
+            imaginées. Je suis à la recherche permanente de façons innovantes d'agir et de faire. J'aime <span class="animate-text">concevoir</span>, imaginer et <span
               class="animate-text">créer</span> en empruntant des <span
               class="animate-text">routes nouvelles</span>.</p>
-        <div class="flex flex-wrap text-white justify-between">
+        <div class="flex flex-wrap text-white justify-between overflow-hidden">
           <div class="flex w-full items-center justify-center">
-            <span class="text-xl dark:text-green-300">Ces mots me parlent...</span>
+            <span class="text-xl text-green-300">Ces mots me parlent...</span>
           </div>
           <div class="text-xl ml-3" v-for="value in $store.state.values ">
             {{ value.name }}
@@ -119,7 +118,7 @@
 
             let elements = document.getElementsByClassName("animate-text");
             for (var i = 0; i < elements.length; i++) {
-                elements[i].addEventListener('click', animateButton, false);
+                elements[i].addEventListener('mouseover', animateButton, false);
             }
         }
     }
