@@ -106,7 +106,7 @@
                 window.open('tel://+33770473953',  '_self')
             },
             mailMe() {
-                window.open('mailto:arthur.briere@outlok.fr', '_self')
+                window.open('mailto:arthur.briere@outlook.fr', '_self')
             }
         }
     }
