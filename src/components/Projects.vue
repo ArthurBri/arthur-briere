@@ -82,73 +82,14 @@
 
 <script>
 import openUrl from '../utils/urls'
+import { projects } from '../data/data'
 
 export default {
   name: 'Projects',
   components: ['CldImage'],
   data() {
     return {
-      projects: [
-        {
-          name: 'Portfolio',
-          year: '2020',
-          type: 'here',
-          description: `Présentation de mon profil, de mes compétences et de ma philosophie`,
-          tags: ['Vue 3', 'Typescript', 'Tailwind CSS', 'Vitejs'],
-          logo: false
-        },
-        {
-          name: 'Vinaigre',
-          year: '2020',
-          type: 'build',
-          description: `Application de gestion des tâches quotidiennes`,
-          logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1602745084/logo-vinaigre_udqhxc.png',
-          tags: ['Vue 3', 'Node.js', 'Tailwind CSS']
-        },
-        {
-          name: 'Compote',
-          year: '2020',
-          type: 'private',
-          description: `Outil d'industrialisation interne dans le domaine de la CCM`,
-          logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1602745430/logo_label_-_Copie_lmaip2.png',
-          tags: ['Electron', 'Vue 2', 'Node.js', 'Tailwind CSS', 'Element UI', 'Webpack']
-        },
-        {
-          name: 'Onigi',
-          year: '2020',
-          type: 'build',
-          description: `Plateforme de vente de producteurs locaux à consommateurs`,
-          logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1602745181/icon_coarni.png',
-          tags: ['Tailwind CSS', 'Vue 2', 'Nuxt', 'Strapi.js', 'Mongo DB', 'iView']
-        },
-        {
-          name: 'MA Vitesse',
-          year: '2019',
-          type: 'public',
-          description: `Outil de calcul intelligent de vitesse`,
-          url: 'http://ma-vitesse-dev.herokuapp.com/',
-          logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_10/v1602744686/logo.2e3abfc1_rscrzc.svg',
-          tags: ['Tailwind CSS', 'Vue 2', 'Mongo DB', 'Heroku', 'PWA']
-        },
-        {
-          name: 'Geckoop',
-          year: '2019',
-          type: 'public',
-          description: `Outil de génération d'étiquettes pour l'épicerie coopérative rennaise Breizhicoop`,
-          logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1602744275/geckoop-logo_cyg625.png',
-          url: 'https://geckoop-dev.breizhicoop.fr/',
-          tags: ['jQuery', 'Bulma', 'Django', 'Python', 'Odoo']
-        },
-        {
-          name: 'Clinique du Droit Rouen',
-          year: '2017',
-          type: 'public',
-          description: `Mise en place d'un site web pour une association étudiante`,
-          logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1602744457/logo_CDR_na4viw.png',
-          url: 'https://www.cliniquedudroitrouen.fr',
-          tags: ['Wordpress']
-        }
-      ],
+      projects,
       projectYearFilter: null,
     }
   },

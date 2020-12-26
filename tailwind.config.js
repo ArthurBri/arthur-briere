@@ -1,8 +1,5 @@
 module.exports = {
-  experimental: {
-    applyComplexClasses: true,
-    darkModeVariant: true,
-  },
+  darkMode: 'media',
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,

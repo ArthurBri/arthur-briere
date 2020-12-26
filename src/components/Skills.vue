@@ -35,49 +35,25 @@
 </template>
 
 <script>
-    export default {
-        name: 'Projects',
-        data() {
-            return {
-                skills: [
-                    {name: 'Python', type: 'technical', stars: 3},
-                    {name: 'Javascript', type: 'technical', stars: 4},
-                    {name: 'Vue 2', type: 'technical', stars: 4},
-                    {name: 'TailwindCSS', type: 'technical', stars: 4},
-                    {name: 'Node.js', type: 'technical', stars: 3.5},
-                    {name: 'Strapi', type: 'technical', stars: 3},
-                    {name: 'Wordpress', type: 'technical', stars: 3},
-                    {name: 'Agilité', type: 'project', stars: 3.5},
-                    {name: 'Git', type: 'project', stars: 3.5},
-                    {name: 'Gitlab', type: 'project', stars: 3.5},
-                    {name: 'HTML', type: 'technical', stars: 4},
-                    {name: 'CSS/SCSS', type: 'technical', stars: 4},
-                    {name: 'Communication non violente', type: 'human', stars: 4},
-                    {name: 'Créativité', type: 'human'},
-                    {name: 'Chiffrage', type: 'project'},
-                    {name: 'Curiosité', type: 'human'},
-                    {name: 'Responsabilité', type: 'human'},
-                    {name: 'Organisation', type: 'human'},
-                    {name: 'Esprit critique', type: 'human'},
-                    {name: 'Autonomie', type: 'human'},
-                    {name: 'Esprit d\'équipe', type: 'human'},
-                    {name: 'Relation client', type: 'project'},
-                    {name: 'Qualité', type: 'project'},
-                    {name: 'Industrialisation', type: 'project'},
-                    {name: 'Planification', type: 'project'},
-                ],
-                skillsTypeFilter: null,
-            }
-        },
-        computed: {
-            filteredSKills () {
-                if (!this.skillsTypeFilter) { return this.skills.sort(function() { return 0.5 - Math.random() }) }
-                else {
-                    return this.skills.filter(skill => skill.type === this.skillsTypeFilter).sort(function() { return 0.5 - Math.random() })
-                }
+import { skills } from '../data/data'
+
+export default {
+    name: 'Projects',
+    data() {
+        return {
+            skills,
+            skillsTypeFilter: null,
+        }
+    },
+    computed: {
+        filteredSKills () {
+            if (!this.skillsTypeFilter) { return this.skills.sort(function() { return 0.5 - Math.random() }) }
+            else {
+                return this.skills.filter(skill => skill.type === this.skillsTypeFilter).sort(function() { return 0.5 - Math.random() })
             }
         }
     }
+}
 </script>
 
 <style scoped>

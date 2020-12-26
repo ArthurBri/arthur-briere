@@ -46,7 +46,7 @@
                         </svg>
                     </div>
                 </div>
-                <img class="rounded-full transition duration-500 ease-in-out transform hover:scale-105 shadow-lg border-green-800 border-4"
+                <img class="rounded-full transition duration-500 ease-in-out transform hover:scale-105 shadow-lg ring-green-800 ring-4"
                      style="height:120px;"
                      src="../assets/profile-pic.jpg" alt="Arthur Brière portrait"/>
             </div>
@@ -105,9 +105,8 @@
             }
         },
         mounted () {
-            var animateButton = function (e) {
+            var animateButton = (e: any) => {
                 e.preventDefault;
-                //reset animation
                 e.target.classList.remove('animate');
 
                 e.target.classList.add('animate');
