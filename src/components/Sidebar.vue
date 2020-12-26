@@ -3,7 +3,7 @@
         <div class="sidebar-start flex-1 flex-col mt-8">
             <div class="flex justify-center">
                 <div class="flex flex-col justify-center items-end mr-4 pr-2">
-                    <div class="text-2xl leading-tight font-bold text-green-800 animate-scale">Arthur Brière</div>
+                    <div class="text-2xl leading-tight font-bold text-teal-800 animate-scale">Arthur Brière</div>
                     <div class="flex items-center animate-scale">
                         <p class="text-xl dark:text-gray-200 ml-4">Créateur web</p>
                     </div>
@@ -46,7 +46,7 @@
                         </svg>
                     </div>
                 </div>
-                <img class="rounded-full transition duration-500 ease-in-out transform hover:scale-105 shadow-lg ring-green-800 ring-4"
+                <img class="rounded-full transition duration-500 ease-in-out transform hover:scale-105 shadow-lg ring-teal-800 ring-4"
                      style="height:120px;"
                      src="../assets/profile-pic.jpg" alt="Arthur Brière portrait"/>
             </div>
@@ -74,7 +74,7 @@
               class="animate-text">routes nouvelles</span>. Fervent adapte du "Less is more".</p>
         <div class="flex flex-wrap text-white justify-between overflow-hidden">
           <div class="flex w-full items-center justify-center">
-            <span class="text-xl text-green-300">Ces mots me parlent...</span>
+            <span class="text-xl text-teal-300">Ces mots me parlent...</span>
           </div>
           <div class="text-xl ml-3" v-for="value in $store.state.values ">
             {{ value.name }}
@@ -82,7 +82,7 @@
         </div>
       </div>
 
-      <div class="sidebar-end text-gray-500 text-sm px-4">
+      <div class="sidebar-end text-gray-300 text-sm px-4">
         Développé en Vue.js, TypeScript, et TailwindCSS
       </div>
     </div>

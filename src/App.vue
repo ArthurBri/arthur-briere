@@ -1,5 +1,6 @@
 <template>
     <div class="app flex">
+        <DarkModeSwitch class="hidden sm:flex md:flex lg:flex xl:flex" />
         <Sidebar />
         <div class="main-content max-h-screen max-w-full z-10">
             <div class="header flex sm:hidden md:hidden lg:hidden xl:hidden">
@@ -15,23 +16,35 @@
 </template>
 
 <script lang="ts">
-    import Projects from './components/Projects.vue'
-    import Skills from './components/Skills.vue'
-    import Experiences from './components/Experiences.vue'
+import Projects from './components/Projects.vue'
+import Skills from './components/Skills.vue'
+import Experiences from './components/Experiences.vue'
+import Header from './components/Header.vue'
+import Sidebar from './components/Sidebar.vue'
+import DarkModeSwitch from "./components/DarkModeSwitch.vue";
 
-    import Header from './components/Header.vue'
-    import Sidebar from './components/Sidebar.vue'
+import { onMounted } from 'vue'
 
-    export default {
-        name: 'App',
-        components: {
-            Projects,
-            Skills,
-            Experiences,
-            Header,
-            Sidebar
+export default {
+    name: 'App',
+    components: {
+        DarkModeSwitch,
+        Projects,
+        Skills,
+        Experiences,
+        Header,
+        Sidebar
+    },
+    setup () {
+      onMounted(() => {
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.querySelector('html').classList.add('dark')
+        } else {
+          document.querySelector('html').classList.remove('dark')
         }
+      })
     }
+}
 </script>
 
 <style lang="scss">
@@ -49,14 +62,20 @@
         background-size: cover;
     }
 
-    @media (prefers-color-scheme: dark) {
+    html {
+      .app {
+        @apply transition-all duration-300;
+      }
+    }
+
+    html.dark {
         .app::before {
             filter: grayscale(100%) contrast(120%);
         }
     }
 
     .app {
-        @apply bg-auto bg-green-800 h-screen overflow-hidden;
+        @apply bg-auto bg-teal-800 h-screen overflow-hidden;
         min-width: 320px;
     }
 

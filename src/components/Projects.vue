@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-between mx-8 md:mx-4 m-4">
-    <h1 class="relative text-2xl font-semibold text-green-800 border-b-6 dark:border-green-800 leading-none">
+    <h1 class="relative text-2xl font-semibold text-teal-800 border-b-6 border-teal-800 leading-none">
       Projets</h1>
     <ul class="flex inline-block relative overflow-auto">
       <li @click="projectYearFilter = null" :class="{'selected': !projectYearFilter }"
@@ -18,7 +18,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-4 justify-center">
     <div class="project card relative flex items-start bg-white rounded-lg shadow-lg mx-2 animate-task dark:text-white"
          v-for="(project, index) in filteredProjects" :key="index">
-      <div class="flex justify-center items-center mask transition duration-500 ease-in-out absolute rounded-lg z-20 p-0 opacity-0 hover:opacity-85 bg-green-800 w-full h-full">
+      <div class="flex justify-center items-center mask transition duration-500 ease-in-out absolute rounded-lg z-20 p-0 opacity-0 hover:opacity-85 bg-teal-800 w-full h-full">
         <svg @click="handleUrl(project.url)" v-if="project.url" xmlns="http://www.w3.org/2000/svg"
              class="icon icon-tabler icon-tabler-link cursor-pointer stroke-current text-white hover:text-gray-300 mx-3"
              width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="" fill="none" stroke-linecap="round"
@@ -68,7 +68,7 @@
           </div>
         </div>
         <div class="tags flex flex-wrap mt-2">
-          <div class="text-xs bg-green-300 shadow dark:text-black rounded-lg p-1 px-2 mr-2 mb-1"
+          <div class="text-xs bg-teal-300 shadow dark:text-black rounded-lg p-1 px-2 mr-2 mb-1"
                v-for="(tag, index) in project.tags" :key="index">
             {{ tag }}
           </div>
@@ -130,7 +130,7 @@ export default {
 }
 
 .filter-item:hover:after {
-  @apply block bg-green-800 rounded-full absolute;
+  @apply block bg-teal-800 rounded-full absolute;
   left: 0;
   content: "";
   height: 2px;
@@ -138,7 +138,7 @@ export default {
 }
 
 .filter-item.selected:after {
-  @apply block bg-green-800 rounded-full absolute;
+  @apply block bg-teal-800 rounded-full absolute;
   width: 100%;
   left: 0;
 }

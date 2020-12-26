@@ -1,5 +1,7 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
-  darkMode: 'media',
+  darkMode: 'class',
   future: {
     removeDeprecatedGapUtilities: true,
     purgeLayersByDefault: true,
@@ -19,6 +21,7 @@ module.exports = {
         'xs': '320px'
       },
       colors: {
+        teal: colors.teal,
         'ab-gray': '#2c3e50'
       },
       opacity: {
