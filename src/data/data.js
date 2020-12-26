@@ -4,6 +4,7 @@ export let skills = [
     {name: 'Vue 2', type: 'technical', stars: 4},
     {name: 'TailwindCSS', type: 'technical', stars: 4},
     {name: 'Node.js', type: 'technical', stars: 3.5},
+    {name: 'Electron', type: 'technical', stars: 3.5},
     {name: 'Strapi', type: 'technical', stars: 3},
     {name: 'Wordpress', type: 'technical', stars: 3},
     {name: 'Agilité', type: 'project', stars: 3.5},
@@ -24,6 +25,7 @@ export let skills = [
     {name: 'Qualité', type: 'project'},
     {name: 'Industrialisation', type: 'project'},
     {name: 'Planification', type: 'project'},
+    {name: 'Encadrement', type: 'project'}
 ]
 
 export let projects = [
@@ -47,7 +49,7 @@ export let projects = [
         name: 'Compote',
         year: '2020',
         type: 'private',
-        description: `Outil d'industrialisation interne dans le domaine de la CCM`,
+        description: `Init., dév et lead d'un projet d'industrialisation dans le domaine de la CCM`,
         logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1602745430/logo_label_-_Copie_lmaip2.png',
         tags: ['Electron', 'Vue 2', 'Node.js', 'Tailwind CSS', 'Element UI', 'Webpack']
     },

@@ -52,7 +52,7 @@
              style="height:80px;"
              src="../assets/profile-pic.jpg" alt="Arthur Brière portrait"/>
           <div class="text-base px-4 h-full flex flex-col items-center justify-center">
-            <p class="text-center text-gray-200 dark:text-white"><span class="animate-text">Développeur</span> de 24 ans</p>
+            <p class="text-center text-gray-200 dark:text-white"><span class="animate-text">Ingénieur d'études</span>, 24 ans</p>
             <div class="text-center flex justify-center text-gray-200 dark:text-white">
               <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-2 stroke-current"
                    width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#03A9F4" fill="none"
@@ -69,12 +69,11 @@
         </div>
         <div class="text-gray-200">
             <div class="text-base text-justify px-4 mt-4">
-                <p class="leading-loose">Je soigne l'aspect <span class="animate-text">créatif</span> de mes projets. Je
-                    suis passionné à l'idée de résoudre les problèmes des gens par des solutions qu'ils n'avaient pas
-                    imaginées. Lorsque je n'y arrive pas, je fais de mon mieux pour les traiter avec soin et qualité.
-                    J'aime <span class="animate-text">concevoir</span>, imaginer et <span class="animate-text">créer</span> en empruntant des <span
-                            class="animate-text">routes nouvelles</span>.</p>
-
+              <p class="leading-loose text-justify dark:text-white px-2 mb-2">Je soigne l'aspect <span class="animate-text">créatif</span> de
+                mes projets. Je suis passionné à l'idée de résoudre les problèmes des gens par des <span class="animate-text">solutions</span> qu'ils n'avaient pas
+                imaginées. Je suis à la recherche permanente de façons innovantes d'agir et de faire. J'aime <span class="animate-text">concevoir</span>, imaginer et <span
+                    class="animate-text">créer</span> en empruntant des <span
+                    class="animate-text">routes nouvelles</span>. Fervent adapte du "Less is more".</p>
             </div>
         </div>
         <div class="mt-8">

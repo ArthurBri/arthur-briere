@@ -18,8 +18,7 @@
   <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-4 justify-center">
     <div class="project card relative flex items-start bg-white rounded-lg shadow-lg mx-2 animate-task dark:text-white"
          v-for="(project, index) in filteredProjects" :key="index">
-      <div
-          class="flex justify-center items-center mask transition duration-500 ease-in-out absolute rounded-lg z-20 p-0 opacity-0 hover:opacity-85 bg-green-800 w-full h-full">
+      <div class="flex justify-center items-center mask transition duration-500 ease-in-out absolute rounded-lg z-20 p-0 opacity-0 hover:opacity-85 bg-green-800 w-full h-full">
         <svg @click="handleUrl(project.url)" v-if="project.url" xmlns="http://www.w3.org/2000/svg"
              class="icon icon-tabler icon-tabler-link cursor-pointer stroke-current text-white hover:text-gray-300 mx-3"
              width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="" fill="none" stroke-linecap="round"
