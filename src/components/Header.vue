@@ -80,7 +80,7 @@
                 mes projets. Je suis passionné à l'idée de résoudre les problèmes des gens par des <span class="animate-text">solutions</span> qu'ils n'avaient pas
                 imaginées. Je suis à la recherche permanente de façons innovantes d'agir et de faire. J'aime <span class="animate-text">concevoir</span>, imaginer et <span
                     class="animate-text">créer</span> en empruntant des <span
-                    class="animate-text">routes nouvelles</span>. Fervent adapte du "Less is more".</p>
+                    class="animate-text">routes nouvelles</span>. Fervent adepte du "Less is more".</p>
             </div>
         </div>
         <div class="mt-8">

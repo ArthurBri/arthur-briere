@@ -94,7 +94,7 @@ export let experiences = [
     { name: `Europ'Raid`, type: 'experience', year: '2017', description: `Récolte de 6000€ pour un 4L Trophy like à travers 23 pays d'Europe en 3 semaines.`, tags: ['Gestion de projet', 'Voyage']},
     { name: `Tutorat`, type: 'experience', year: '2020', description: `Tuteur de stage sur un projet initié en interne chez Sword.`, tags: ['Gestion de projet', 'Travail d\'équipe']},
     { name: `Photographie`, type: 'interest', description: `Passion pour les couleurs, les formes et les harmonies. Photographies de voyage, de bâtiments ou de grand espaces.`},
-    { name: `Minimalisme`, type: 'interest', description: `A la recherche de simplicité. Adapte du "Less is more."`},
+    { name: `Minimalisme`, type: 'interest', description: `A la recherche de simplicité matérielle et dans mes projets.`},
     { name: `Running`, type: 'interest', description: `Je cours régulièrement. Inscrit au Marathon de Paris 2021 !`},
     { name: `Formation`, type: 'interest', description: `En formation continue active. En ce moment, c'est Typescript et Vue 3 !`},
 ]
