@@ -1,9 +1,15 @@
+/* purgecss start ignore */
+@tailwind base;
+@tailwind components;
+/* purgecss end ignore */
+@tailwind utilities;
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  @apply text-ab-gray transition duration-1000;
+  @apply text-ab-gray dark:text-white transition-colors duration-300;
 }
 
 ::-webkit-scrollbar {
@@ -20,21 +26,21 @@
   background-clip: content-box;
 }
 
+h1 {
+  @apply text-2xl md:text-2xl lg:text-3xl;
+}
+
 $sidebar-width: 350px;
 
-/* purgecss start ignore */
-@tailwind base;
-@tailwind components;
-/* purgecss end ignore */
-@tailwind utilities;
-
 .animate-text {
-  @apply text-teal-800 dark:text-teal-400 opacity-50 hover:opacity-100 animate-scale font-bold cursor-pointer outline-none;
+  @apply text-ab-primary dark:text-teal-400 opacity-50 hover:opacity-100 animate-scale font-bold outline-none cursor-default;
   display: inline-block;
   position: relative;
 }
 
-.animate-text:focus { outline: 0; }
+.animate-text:focus {
+  outline: 0;
+}
 
 .animate-text:before, .animate-text:after {
   position: absolute;
@@ -51,14 +57,14 @@ $sidebar-width: 350px;
 .animate-text:before {
   display: none;
   top: -75%;
-  background-image: radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, transparent 20%, green 20%, transparent 30%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, transparent 10%, green 15%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%);
+  background-image: radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, transparent 20%, #285E61 20%, transparent 30%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, transparent 10%, #285E61 15%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%);
   background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
 }
 
 .animate-text:after {
   display: none;
   bottom: -75%;
-  background-image: radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, transparent 10%, green 15%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%), radial-gradient(circle, green 20%, transparent 20%);
+  background-image: radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, transparent 10%, #285E61 15%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%);
   background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
 }
 
@@ -75,10 +81,11 @@ $sidebar-width: 350px;
   display: block;
   animation: bottomBubbles ease-in-out 0.75s forwards;
 }
-@keyframes
-topBubbles {  0% {
-  background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
-}
+
+@keyframes topBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+  }
   50% {
     background-position: 0 80%, 0 20%, 10% 40%, 20% 0, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
   }
@@ -87,16 +94,17 @@ topBubbles {  0% {
     background-size: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
   }
 }
-@keyframes
-bottomBubbles {  0% {
-  background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0;
-}
+
+@keyframes bottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0;
+  }
   50% {
     background-position: 0 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0;
   }
   100% {
     background-position: 0 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
-    background-size: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0 ;
+    background-size: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
   }
 }
 

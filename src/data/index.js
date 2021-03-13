@@ -1,7 +1,8 @@
-export let skills = [
+export const skills = [
     {name: 'Python', type: 'technical', stars: 3},
     {name: 'Javascript', type: 'technical', stars: 4},
     {name: 'Vue 2', type: 'technical', stars: 4},
+    {name: 'Vue 3', type: 'technical', stars: 3},
     {name: 'TailwindCSS', type: 'technical', stars: 4},
     {name: 'Node.js', type: 'technical', stars: 3.5},
     {name: 'Electron', type: 'technical', stars: 3.5},
@@ -25,10 +26,14 @@ export let skills = [
     {name: 'Qualité', type: 'project'},
     {name: 'Industrialisation', type: 'project'},
     {name: 'Planification', type: 'project'},
-    {name: 'Encadrement', type: 'project'}
+    {name: 'Encadrement', type: 'project'},
+    {name: 'Typescript', type: 'technical', stars: 2},
+    {name: 'GraphQL', type: 'technical', stars: 2},
+    {name: 'React', type: 'technical', stars: 2.5},
+    {name: 'Gatsby', type: 'technical', stars: 2}
 ]
 
-export let projects = [
+export const projects = [
     {
         name: 'Portfolio',
         year: '2020',
@@ -90,13 +95,58 @@ export let projects = [
     }
 ]
 
-export let experiences = [
-    { name: `Europ'Raid`, type: 'experience', year: '2017', description: `Récolte de 6000€ pour un 4L Trophy like à travers 23 pays d'Europe en 3 semaines.`, tags: ['Gestion de projet', 'Voyage']},
-    { name: `Tutorat`, type: 'experience', year: '2020', description: `Tuteur de stage sur un projet initié en interne chez Sword.`, tags: ['Gestion de projet', 'Travail d\'équipe']},
-    { name: `Photographie`, type: 'interest', description: `Passion pour les couleurs, les formes et les harmonies. Photographies de voyage, de bâtiments ou de grand espaces.`},
-    { name: `Minimalisme`, type: 'interest', description: `A la recherche de simplicité matérielle et dans mes projets numériques.`},
-    { name: `Running`, type: 'interest', description: `Je cours régulièrement. Inscrit au Marathon de Paris 2021 !`},
-    { name: `Formation`, type: 'interest', description: `En formation continue active. En ce moment, c'est Typescript et Vue 3 !`},
+export const experiences = [
+    {
+        name: `Europ'Raid`,
+        type: 'experience',
+        year: '2017',
+        description: `Récolte de 6000€ pour un 4L Trophy like à travers 23 pays d'Europe en 3 semaines.`,
+        tags: ['Gestion de projet', 'Voyage']
+    },
+    {
+        name: `Tutorat`,
+        type: 'experience',
+        year: '2020',
+        description: `Tuteur de stage sur un projet initié en interne chez Sword.`,
+        tags: ['Gestion de projet', `Travail d'équipe`]
+    },
+    {
+        name: `Photographie`,
+        type: 'interest',
+        description: `Passion pour les couleurs, les formes et les harmonies. Photographies de voyage, de bâtiments ou de grand espaces.`
+    },
+    {
+        name: `Minimalisme`,
+        type: 'interest',
+        description: `A la recherche de simplicité matérielle et dans mes projets numériques.`
+    },
+    {name: `Running`, type: 'interest', description: `Je cours régulièrement. Inscrit au Marathon de Paris 2021.`},
+    {
+        name: `Culture tech`,
+        type: 'interest',
+        description: `Je suis les trends et me forme en continu. Actuellement en approfondissement sur Jest, TDD, et Typescript.`
+    },
 ]
+
+export const values = [
+    {name: 'Bienveillance', importance: 5},
+    {name: 'Curiosité', importance: 5},
+    {name: 'Passion', importance: 5},
+    {name: 'Durabilité', importance: 5},
+    {name: 'Persévérance', importance: 5},
+    {name: 'Écoute', importance: 5},
+    {name: 'Équilibre', importance: 5},
+    {name: 'Progression', importance: 5},
+    {name: 'Patience', importance: 5},
+    {name: 'Dynamisme', importance: 5},
+    {name: 'Écologie', importance: 5},
+    {name: 'Tentatives', importance: 5},
+    {name: 'Résilience', importance: 5}
+]
+
+export const presentation = `
+Développeur en cours d'<span class="animate-text">expertise</span> sur les technos JavaScript. Passionné par les belles  <span class="animate-text">interfaces</span> et les <span class="animate-text">expériences</span> utilisateurs, je travaille également sur des projets <span class="animate-text">NodeJS</span>.
+J'aime réfléchir à des <span class="animate-text">solutions</span>, et j'ai une motivation exacerbée lorsque lorsque mes projets traitent de sujets <span class="animate-text">environnementaux</span> ou de progrès sociétaux. Je suis toujours déterminé à résoudre des 
+problèmes, en essayant de proposer des biais <span class="animate-text">innovants</span>. Mon état d'esprit se construit autour du "Less is more".`
 
 

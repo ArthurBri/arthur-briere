@@ -22,7 +22,8 @@ module.exports = {
       },
       colors: {
         teal: colors.teal,
-        'ab-gray': '#2c3e50'
+        'ab-primary': colors.teal["800"],
+        'ab-gray': '#233140'
       },
       opacity: {
         '85': '0.85'
