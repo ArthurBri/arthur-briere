@@ -30,5 +30,8 @@ export default {
 </script>
 
 <style scoped>
+.card {
+  @apply bg-opacity-85 dark:bg-gray-800 bg-white;
+}
 
 </style>
