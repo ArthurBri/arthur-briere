@@ -11,7 +11,7 @@
         </div>
       </div>
       <div class="tags flex flex-wrap mt-2">
-        <div class="text-xs bg-blue-300 shadow rounded-lg p-1 px-2 mr-2 mb-1 text-ab-gray"
+        <div class="text-xs bg-ab-gray text-white shadow rounded-lg p-1 px-2 mr-2 mb-1"
              v-for="tag in experience.tags">
           {{ tag }}
         </div>

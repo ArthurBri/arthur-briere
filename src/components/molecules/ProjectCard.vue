@@ -53,7 +53,7 @@
       </div>
       <div class="card-footer">
         <div class="tags flex flex-wrap mt-2">
-          <div class="text-xs bg-teal-300 shadow dark:text-black rounded-lg p-1 px-2 mr-2 mb-1"
+          <div class="text-xs bg-ab-primary text-white shadow rounded-lg p-1 px-2 mr-2 mb-1"
                v-for="(tag, index) in project.tags" :key="index">
             {{ tag }}
           </div>
