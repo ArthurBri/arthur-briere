@@ -1,6 +1,6 @@
 <template>
   <div
-      class="sidebar justify-between items-stretch hidden shadow-lg sm:flex md:flex lg:flex xl:flex flex-col justify-between items-start bg-gradient-to-b dark:from-gray-800 from-white via-white to-transparent p-4">
+      class="sidebar justify-between items-stretch hidden shadow-lg hidden sm:flex flex-col justify-between items-start bg-gradient-to-b dark:from-gray-800 from-white via-white to-transparent p-4">
     <div class="sidebar-start flex-1 flex-col mt-2">
       <div class="flex justify-center">
         <img class="rounded-xl transition duration-500 ease-in-out transform hover:scale-105 shadow-xl"

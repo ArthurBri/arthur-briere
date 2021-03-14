@@ -86,7 +86,7 @@
     </div>
     <div class="text-gray-200">
       <div class="text-base text-justify px-4 mt-4">
-        <p class="leading-loose text-justify px-2 mb-2" v-html="presentation"></p>
+        <p class="presentation leading-loose text-justify px-2 mb-2" v-html="presentation" />
       </div>
     </div>
     <div class="my-8">
@@ -141,13 +141,13 @@ export default {
 
 <style scoped>
 .menu {
-  @apply fixed w-full z-30 overflow-x-hidden overflow-y-scroll bg-ab-primary mt-12;
+  @apply fixed w-full z-50 overflow-x-hidden overflow-y-scroll bg-ab-primary mt-12;
   backdrop-filter: blur(5px);
   height: calc(100vh - 3rem)
 }
 
-.animate-text {
-  @apply text-white;
+>>> .animate-text {
+  color:white;
 }
 
 .header {

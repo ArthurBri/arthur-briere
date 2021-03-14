@@ -49,7 +49,7 @@ export default {
   }
 }
 </script>
-F
+
 <style lang="scss">
 @import "src/index.scss";
 

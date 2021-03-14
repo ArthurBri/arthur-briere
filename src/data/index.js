@@ -146,7 +146,7 @@ export const values = [
 
 export const presentation = `
 Développeur en cours d'<span class="animate-text">expertise</span> sur les technos JavaScript. Passionné par les belles  <span class="animate-text">interfaces</span> et les <span class="animate-text">expériences</span> utilisateurs, je travaille également sur des projets <span class="animate-text">NodeJS</span>.
-J'aime réfléchir à des <span class="animate-text">solutions</span>, et j'ai une motivation exacerbée lorsque lorsque mes projets traitent de sujets <span class="animate-text">environnementaux</span> ou de progrès sociétaux. Je suis toujours déterminé à résoudre des 
+J'aime réfléchir à des <span class="animate-text">solutions</span>, et ma motivation est exacerbée lorsque mes projets traitent de sujets <span class="animate-text">environnementaux</span> ou de progrès sociétaux. Je suis toujours déterminé à résoudre des 
 problèmes, en essayant de proposer des biais <span class="animate-text">innovants</span>. Mon état d'esprit se construit autour du "Less is more".`
 
 

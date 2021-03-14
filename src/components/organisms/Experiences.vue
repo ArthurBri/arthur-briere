@@ -10,7 +10,7 @@
             class="relative filter-item mr-4 cursor-pointer">Centres d'intérêt</span>
     </div>
   </div>
-  <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-y-4 justify-center">
+  <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 px-2 justify-center">
     <transition-group name="experiences">
       <ExperienceCard v-for="(experience, index) in filteredExperiences" :experience="experience" :key="index" />
     </transition-group>
