@@ -33,7 +33,7 @@ h1 {
 $sidebar-width: 350px;
 
 .animate-text {
-  @apply text-ab-primary dark:text-teal-400 opacity-50 hover:opacity-100 animate-scale font-bold outline-none cursor-default;
+  @apply text-ab-primary dark:text-teal-400 opacity-50 hover:opacity-100 font-bold outline-none cursor-default;
   display: inline-block;
   position: relative;
 }
