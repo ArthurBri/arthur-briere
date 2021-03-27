@@ -37,10 +37,10 @@ export const projects = [
     {
         name: 'Portfolio',
         year: '2020',
-        type: 'here',
         description: `Présentation de mon profil, de mes compétences et de ma philosophie`,
         tags: ['Vue 3', 'Typescript', 'Tailwind CSS', 'Vitejs'],
-        logo: false
+        logo: false,
+        githubUrl: 'https://github.com/ArthurBri/arthur-briere'
     },
     {
         name: 'Vinaigre',
@@ -64,16 +64,17 @@ export const projects = [
         type: 'build',
         description: `Plateforme de vente de producteurs locaux à consommateurs`,
         logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1602745181/icon_coarni.png',
-        tags: ['Tailwind CSS', 'Vue 2', 'Nuxt', 'Strapi.js', 'Mongo DB', 'iView']
+        tags: ['Vue 2', 'Nuxt', 'Strapi.js', 'Mongo DB', 'Tailwind CSS', 'iView']
     },
     {
         name: 'MA Vitesse',
-        year: '2019',
+        year: '2020',
         type: 'public',
         description: `Outil de calcul intelligent de vitesse`,
         url: 'http://ma-vitesse-dev.herokuapp.com/',
+        githubUrl: 'https://github.com/ArthurBri/ma-vitesse',
         logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_10/v1602744686/logo.2e3abfc1_rscrzc.svg',
-        tags: ['Tailwind CSS', 'Vue 2', 'Mongo DB', 'Heroku', 'PWA']
+        tags: ['Vue 2', 'Mongo DB', 'Tailwind CSS', 'Heroku', 'PWA']
     },
     {
         name: 'Geckoop',
@@ -82,7 +83,7 @@ export const projects = [
         description: `Outil de génération d'étiquettes pour l'épicerie coopérative rennaise Breizhicoop`,
         logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1602744275/geckoop-logo_cyg625.png',
         url: 'https://geckoop-dev.breizhicoop.fr/',
-        tags: ['jQuery', 'Bulma', 'Django', 'Python', 'Odoo']
+        tags: ['Python', 'Django', 'jQuery', 'Bulma', 'Odoo']
     },
     {
         name: 'Clinique du Droit Rouen',

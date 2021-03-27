@@ -2,13 +2,20 @@
   <div class="relative transform hover:scale-105 transition duration-500">
     <div
         class="card-mask flex justify-center items-center mask transition duration-500 ease-in-out absolute rounded-lg z-20 p-0 opacity-0 hover:opacity-95 bg-ab-primary w-full h-full">
-      <svg v-if="project.url" @click="handleUrl(project.url)" xmlns="http://www.w3.org/2000/svg"
+      <svg v-if="project.url" @click="openUrl(project.url)" xmlns="http://www.w3.org/2000/svg"
            class="icon icon-tabler icon-tabler-link cursor-pointer stroke-current text-white hover:text-gray-300 mx-3"
            width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="" fill="none" stroke-linecap="round"
            stroke-linejoin="round">
         <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
         <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"/>
         <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"/>
+      </svg>
+      <svg v-if="project.githubUrl" @click="openUrl(project.githubUrl)" xmlns="http://www.w3.org/2000/svg"
+           class="icon icon-tabler icon-tabler-brand-github cursor-pointer stroke-current text-white hover:text-gray-300 mx-3"
+           width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round"
+           stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+        <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
       </svg>
       <svg v-if="project.pictures" xmlns="http://www.w3.org/2000/svg"
            class="icon icon-tabler icon-tabler-slideshow cursor-pointer stroke-current text-white hover:text-gray-300 mx-3"
@@ -26,8 +33,6 @@
       <div v-if="project.type !== 'public'" class="text-white text-lg">
         <div v-if="project.type === 'private'">Projet privé.</div>
         <div v-else-if="project.type === 'build'">Projet en construction.</div>
-        <div v-else-if="project.type === 'here'">Vous y êtes ! :)</div>
-        <div v-if="project.type !== 'here'">Démo sur demande :)</div>
       </div>
     </div>
     <div class="card p-4 flex h-full justify-between flex-col w-full rounded-lg hover:opacity-0">
@@ -64,10 +69,15 @@
 </template>
 
 <script>
+import openUrl from "../../utils/urls";
+
 export default {
   name: "ProjectCard.vue",
   props: {
     project: Object
+  },
+  setup () {
+    return { openUrl }
   }
 }
 </script>
