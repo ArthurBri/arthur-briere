@@ -1,9 +1,9 @@
 <template>
   <div class="flex flex-col items-center justify-between mx-8 md:mx-4 m-4 mt-0">
-    <h1 class="relative text-white font-extrabold leading-none mt-4">
+    <h1 class="relative text-white font-semibold leading-none mt-4">
       Projets</h1>
     <div class="flex relative w-full justify-center items-center pb-4 md:pb-0">
-      <ul class="flex inline-block relative overflow-auto text-white mt-2">
+      <ul class="flex relative overflow-auto text-white mt-2">
         <li @click="projectYearFilter = null" :class="{'selected': !projectYearFilter }"
             class="relative filter-item mx-2 cursor-pointer">Tous
         </li>
@@ -27,7 +27,6 @@
 </template>
 
 <script>
-import openUrl from '../../utils/urls'
 import { projects } from '../../data'
 import ProjectCard from "../molecules/ProjectCard.vue";
 
@@ -37,14 +36,6 @@ export default {
   data() {
     return {
       projectYearFilter: null,
-    }
-  },
-  methods: {
-    handleUrl(url) {
-      if (!url) {
-        return
-      }
-      openUrl(url)
     }
   },
   computed: {

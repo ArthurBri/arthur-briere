@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center content-center justify-between mt-12 mx-8 md:mx-4 m-4">
-    <h1 class="relative text-2xl font-semibold text-white leading-none mr-4">Compétences</h1>
-    <div class="flex inline-block relative overflow-auto text-white mt-2">
+    <h1 class="relative font-semibold text-white leading-none mr-4">Compétences</h1>
+    <div class="flex relative overflow-auto text-white mt-2">
       <span @click="skillsTypeFilter = null" :class="{'selected': !skillsTypeFilter }"
             class="relative filter-item mr-4 cursor-pointer">Toutes</span>
       <span @click="skillsTypeFilter = 'technical'" :class="{'selected': skillsTypeFilter === 'technical' }"
