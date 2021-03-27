@@ -1,6 +1,10 @@
+const tailwindVersion = process.env.NODE_ENV === 'production'
+    ? 'tailwindcss'
+    : '@tailwindcss/jit'
+
 module.exports = {
     plugins: {
-        tailwindcss: {},
+        [tailwindVersion]: {},
         autoprefixer: {},
     },
 }
