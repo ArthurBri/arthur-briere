@@ -35,6 +35,15 @@ export const skills = [
 
 export const projects = [
     {
+        name: 'Cat Name Creator',
+        year: '2021',
+        description: `Créateur de nom de chats, complètement futile. Projet de travail sur le TDD + typescript avec Vue`,
+        tags: ['Vue 3', 'Typescript', 'Jest', 'TDD', 'Tailwind'],
+        logo: 'https://raw.githubusercontent.com/ArthurBri/cat-name-creator/master/src/assets/images/kitty.svg',
+        url: 'https://cat-name-creator.netlify.app/',
+        githubUrl: 'https://github.com/ArthurBri/cat-name-creator'
+    },
+    {
         name: 'Portfolio',
         year: '2020',
         description: `Présentation de mon profil, de mes compétences et de ma philosophie`,
