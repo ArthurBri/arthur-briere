@@ -13,7 +13,7 @@
           </div>
           <div class="links flex stroke-current">
             <svg xmlns="http://www.w3.org/2000/svg"
-                 @click="handleUrl('https://www.linkedin.com/in/arthur-brière/')"
+                 @click="actions.openUrl('https://www.linkedin.com/in/arthur-brière/')"
                  class="icon icon-tabler icon-tabler-brand-linkedin cursor-pointer animate-scale stroke-current"
                  width="30" height="30"
                  viewBox="0 0 24 24" stroke-width="1" stroke="#2c3e50" fill="none"
@@ -26,7 +26,7 @@
               <line x1="12" y1="16" x2="12" y2="11"/>
               <path d="M16 16v-3a2 2 0 0 0 -4 0"/>
             </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" @click="callMe"
+            <svg xmlns="http://www.w3.org/2000/svg" @click="actions.call()"
                  class="icon icon-tabler icon-tabler-phone-call ml-2 cursor-pointer animate-scale stroke-current"
                  width="30" height="30"
                  viewBox="0 0 24 24" stroke-width="1" stroke="#2c3e50" fill="none"
@@ -38,7 +38,7 @@
               <path d="M15 7a2 2 0 0 1 2 2"/>
               <path d="M15 3a6 6 0 0 1 6 6"/>
             </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" @click="mailMe"
+            <svg xmlns="http://www.w3.org/2000/svg" @click="actions.email()"
                  class="icon icon-tabler icon-tabler-mail ml-2 cursor-pointer animate-scale stroke-current"
                  width="30"
                  height="30"
@@ -53,7 +53,7 @@
         </div>
       </div>
       <div class="text-base px-4 mt-4">
-        <p class="text-center"><span class="animate-text">Ingénieur d'études</span>, {{ age }} ans</p>
+        <p class="text-center"><span class="animate-text">Ingénieur d'études</span>, {{ age() }} ans</p>
         <div class="text-center flex justify-center">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-2 stroke-current"
                width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#03A9F4" fill="none"
@@ -68,14 +68,16 @@
           <span class="ml-2">Rennes, France</span></div>
       </div>
     </div>
-    <div class="sidebar-middle my-4 overflow-auto overflow-x-hidden flex flex-col h-full justify-between">
-      <p class="leading-loose text-justify px-2 mb-2 z-10" v-html="presentation"/>
-      <div class="flex flex-wrap text-white justify-between overflow-hidden">
-        <div class="flex w-full items-center justify-center">
-          <span class="text-xl text-teal-300">Ces mots me parlent...</span>
-        </div>
-        <div class="text-xl ml-3" v-for="value in values ">
-          {{ value.name }}
+    <div class="sidebar-middle my-4 overflow-y-auto overflow-x-hidden flex flex-col h-full justify-between">
+      <div>
+        <p class="leading-loose text-justify px-2 mb-2 z-10" v-html="presentation"/>
+        <div class="flex flex-wrap text-white justify-between overflow-hidden">
+          <div class="flex w-full items-center justify-center">
+            <span class="text-xl text-teal-300">Ces mots me parlent...</span>
+          </div>
+          <div class="text-xl ml-3" v-for="value in values ">
+            {{ value.name }}
+          </div>
         </div>
       </div>
     </div>
@@ -86,49 +88,37 @@
 </template>
 
 <script lang="ts">
-import openUrl from "../../utils/urls";
-import {presentation, values} from "../../data";
+import { presentation, values } from "../../data"
+import { onMounted, onUnmounted } from "vue"
+import actions from "../../utils/actions"
+import { age } from "../../utils/infos"
+
+const animateButton = (e: Event) => {
+  e.preventDefault();
+  (e.target as HTMLDivElement).classList.remove('animate');
+
+  (e.target as HTMLDivElement).classList.add('animate')
+  setTimeout(() => (e.target as HTMLDivElement).classList.remove('animate'), 700)
+};
 
 export default {
   name: "Sidebar",
-  data() {
-    return {
-      values,
-      presentation
-    }
-  },
-  methods: {
-    handleUrl(url: string) {
-      openUrl(url)
-    },
-    callMe() {
-      window.open('tel://+33770473953', '_self')
-    },
-    mailMe() {
-      window.open('mailto:arthur.briere@outlook.fr', '_self')
-    }
-  },
-  mounted() {
-    let animateButton = (e: Event) => {
-      e.preventDefault;
-      e.target.classList.remove('animate');
+  setup() {
+    onMounted(() => {
+      const elements = document?.getElementsByClassName("animate-text");
+      Array.from(elements).forEach(element => {
+        element.addEventListener('mouseover', animateButton, false);
+      })
+    })
 
-      e.target.classList.add('animate');
-      setTimeout(function () {
-        e.target.classList.remove('animate');
-      }, 700);
-    };
+    onUnmounted(() => {
+      const elements = document?.getElementsByClassName("animate-text");
+      Array.from(elements).forEach(element => {
+        element.removeEventListener('mouseover', animateButton, false);
+      })
+    })
 
-    let elements = document.getElementsByClassName("animate-text");
-    for (let i = 0; i < elements.length; i++) {
-      elements[i].addEventListener('mouseover', animateButton, false);
-    }
-  },
-  computed: {
-    age() {
-      const birthDate = new Date('03/19/1996');
-      return Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10)
-    }
+    return { values, presentation, actions, age }
   }
 }
 </script>
@@ -140,6 +130,7 @@ export default {
   @apply mx-4 my-8 rounded-xl;
   backdrop-filter: blur(5px);
   width: $sidebar-width;
+  max-height: calc(100vh - 4rem);
 }
 
 .animate-text {

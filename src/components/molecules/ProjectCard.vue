@@ -2,7 +2,7 @@
   <div class="relative transform hover:scale-105 transition duration-500">
     <div
         class="card-mask flex justify-center items-center mask transition duration-500 ease-in-out absolute rounded-lg z-20 p-0 opacity-0 hover:opacity-95 bg-ab-primary w-full h-full">
-      <svg v-if="project.url" @click="openUrl(project.url)" xmlns="http://www.w3.org/2000/svg"
+      <svg v-if="project.url" @click="actions.openUrl(project.url)" xmlns="http://www.w3.org/2000/svg"
            class="icon icon-tabler icon-tabler-link cursor-pointer stroke-current text-white hover:text-gray-300 mx-3"
            width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="" fill="none" stroke-linecap="round"
            stroke-linejoin="round">
@@ -10,7 +10,7 @@
         <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5"/>
         <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5"/>
       </svg>
-      <svg v-if="project.githubUrl" @click="openUrl(project.githubUrl)" xmlns="http://www.w3.org/2000/svg"
+      <svg v-if="project.githubUrl" @click="actions.openUrl(project.githubUrl)" xmlns="http://www.w3.org/2000/svg"
            class="icon icon-tabler icon-tabler-brand-github cursor-pointer stroke-current text-white hover:text-gray-300 mx-3"
            width="28" height="28" viewBox="0 0 24 24" stroke-width="2" stroke="#2c3e50" fill="none" stroke-linecap="round"
            stroke-linejoin="round">
@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import openUrl from "../../utils/urls";
+import actions from "../../utils/actions";
 
 export default {
   name: "ProjectCard.vue",
@@ -77,7 +77,7 @@ export default {
     project: Object
   },
   setup () {
-    return { openUrl }
+    return { actions }
   }
 }
 </script>

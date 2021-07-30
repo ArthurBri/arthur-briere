@@ -10,6 +10,5 @@
     "lib": ["dom", "esnext"],
     "allowJs": true
   },
-  // "include": ["src/*.ts", "src/**/*.ts", "src/**/*.vue", "tests/**/*.ts"],
   "exclude": ["node_modules", "dist", "public"]
 }

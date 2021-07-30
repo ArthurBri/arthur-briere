@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center content-center justify-between mt-12 mx-8 md:mx-4 m-4">
     <h1 class="relative font-semibold text-white leading-none mr-4">Expériences & Intérêts</h1>
     <div class="flex relative overflow-auto text-white mt-2">
-      <span @click="filterType = null" :class="{'selected': !filterType }"
+      <span @click="filterType = ''" :class="{'selected': !filterType }"
             class="relative filter-item mr-4 cursor-pointer">Tous</span>
       <span @click="filterType = 'experience'" :class="{'selected' : filterType === 'experience' }"
             class="relative filter-item mr-4 cursor-pointer">Expériences</span>
@@ -19,35 +19,21 @@
 
 <script>
 import { experiences } from '../../data'
-import openUrl from '../../utils/urls'
-import ExperienceCard  from "../molecules/ExperienceCard.vue";
+import ExperienceCard  from "../molecules/ExperienceCard.vue"
+import { defineComponent, ref, computed } from "vue"
 
-export default {
+export default defineComponent({
   name: 'Experiences',
   components: { ExperienceCard },
-  data() {
-    return {
-      filterType: null,
-    }
-  },
-  methods: {
-    handleUrl(url) {
-      if (!url) {
-        return
-      }
-      openUrl(url)
-    }
-  },
-  computed: {
-    filteredExperiences() {
-      if (!this.filterType) {
-        return experiences
-      } else {
-        return experiences.filter(experience => experience.type === this.filterType)
-      }
-    }
+  setup() {
+    const filterType = ref('')
+    const filteredExperiences = computed(() => filterType.value
+        ? experiences.filter(experience => experience.type === filterType.value)
+        : experiences
+    )
+    return { filterType, filteredExperiences }
   }
-}
+})
 </script>
 
 <style>

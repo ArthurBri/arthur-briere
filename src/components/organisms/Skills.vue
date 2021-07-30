@@ -20,28 +20,19 @@
 <script>
 import SkillCard from "../molecules/SkillCard.vue";
 import { skills } from '../../data'
-
+import { ref, computed } from 'vue'
 
 export default {
   name: 'Projects',
   components: { SkillCard },
-  data() {
-    return {
-      skillsTypeFilter: null,
-    }
-  },
-  computed: {
-    filteredSKills() {
-      if (!this.skillsTypeFilter) {
-        return skills.sort(function () {
-          return 0.5 - Math.random()
-        })
-      } else {
-        return skills.filter(skill => skill.type === this.skillsTypeFilter).sort(function () {
-          return 0.5 - Math.random()
-        })
-      }
-    }
+  setup () {
+    const skillsTypeFilter = ref(null)
+    const filteredSKills = computed(() =>
+      skillsTypeFilter.value
+        ? skills.filter(skill => skill.type === skillsTypeFilter.value).sort(() => 0.5 - Math.random())
+        : skills.sort(() =>  0.5 - Math.random())
+    )
+    return { skillsTypeFilter, filteredSKills }
   }
 }
 </script>

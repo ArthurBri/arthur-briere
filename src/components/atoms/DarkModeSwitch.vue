@@ -17,7 +17,7 @@ export default {
     }
   },
   setup() {
-    let darkModeEnabled = ref((localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)))
+    const darkModeEnabled = ref((localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)))
 
     watch(darkModeEnabled, () => {
       if (darkModeEnabled.value) {
@@ -27,11 +27,10 @@ export default {
       } else {
         document.querySelector('html').classList.remove('dark')
         document.getElementById('app').classList.remove('dark')
-
         localStorage.theme = 'light'
       }
     })
-    return {darkModeEnabled}
+    return { darkModeEnabled }
   }
 }
 </script>

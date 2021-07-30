@@ -28,27 +28,22 @@
 
 <script>
 import { projects } from '../../data'
-import ProjectCard from "../molecules/ProjectCard.vue";
+import ProjectCard from "../molecules/ProjectCard.vue"
+import { computed, ref } from "vue"
 
 export default {
   name: 'Projects',
   components: {ProjectCard},
-  data() {
-    return {
-      projectYearFilter: null,
-    }
-  },
-  computed: {
-    filteredProjects() {
-      if (!this.projectYearFilter) {
-        return projects
-      } else {
-        return projects.filter(project => project.year === this.projectYearFilter)
-      }
-    },
-    projectYears() {
-      return [...new Set(projects.map(project => project.year))]
-    }
+  setup () {
+    const projectYearFilter = ref(null)
+    const filteredProjects = computed(() =>
+        projectYearFilter.value
+            ? projects.filter(project => project.year === projectYearFilter.value)
+            : projects
+    )
+
+    const projectYears = computed(() => [...new Set(projects.map(project => project.year))])
+    return { projectYearFilter, filteredProjects, projectYears }
   }
 }
 </script>

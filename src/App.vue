@@ -17,14 +17,15 @@
 </template>
 
 <script lang="ts">
+import { onMounted } from 'vue'
+
 import Projects from './components/organisms/Projects.vue'
 import Skills from './components/organisms/Skills.vue'
 import Experiences from './components/organisms/Experiences.vue'
 import Header from './components/organisms/Header.vue'
 import Sidebar from './components/organisms/Sidebar.vue'
-import DarkModeSwitch from "./components/atoms/DarkModeSwitch.vue";
+import DarkModeSwitch from "./components/atoms/DarkModeSwitch.vue"
 
-import {onMounted} from 'vue'
 
 export default {
   name: 'App',
@@ -39,11 +40,11 @@ export default {
   setup() {
     onMounted(() => {
       if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.querySelector('html').classList.add('dark')
-        document.getElementById('app').classList.add('dark')
+        document.querySelector('html')?.classList.add('dark')
+        document.getElementById('app')?.classList.add('dark')
       } else {
-        document.querySelector('html').classList.remove('dark')
-        document.getElementById('app').classList.remove('dark')
+        document.querySelector('html')?.classList.remove('dark')
+        document.getElementById('app')?.classList.remove('dark')
       }
     })
   }

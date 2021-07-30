@@ -1,7 +1,7 @@
 <template>
   <div class="header fixed z-10 w-full flex items-center h-12 px-2 justify-between text-white">
     <div class="flex items-center" @click="handleMenuVisibility">
-      <div class="burger-menu">
+      <div class="burger-menu cursor-pointer">
         <svg :class="{'transform rotate-45': menuVisible}" xmlns="http://www.w3.org/2000/svg" class="absolute transition-transform duration-300 icon icon-tabler icon-tabler-dots-vertical stroke-current fill-current" width="28" height="28" viewBox="0 0 24 24" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
           <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
           <circle cx="12" cy="12" r="1" />
@@ -20,7 +20,7 @@
     <div class="links flex items-center text-white">
       <div>
         <svg xmlns="http://www.w3.org/2000/svg"
-             @click="handleUrl('https://www.linkedin.com/in/arthur-brière/')"
+             @click="actions.openUrl('https://www.linkedin.com/in/arthur-brière/')"
              class="icon icon-tabler icon-tabler-brand-linkedin cursor-pointer animate-scale stroke-current"
              width="25" height="25"
              viewBox="0 0 24 24" stroke-width="1" stroke="#FFFFFF" fill="none"
@@ -35,7 +35,7 @@
         </svg>
       </div>
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" @click="callMe"
+        <svg xmlns="http://www.w3.org/2000/svg" @click="actions.call()"
              class="icon icon-tabler icon-tabler-phone-call ml-2 cursor-pointer animate-scale stroke-current"
              width="25" height="25"
              viewBox="0 0 24 24" stroke-width="1" stroke="#FFFFFF" fill="none"
@@ -49,7 +49,7 @@
         </svg>
       </div>
       <div>
-        <svg xmlns="http://www.w3.org/2000/svg" @click="mailMe"
+        <svg xmlns="http://www.w3.org/2000/svg" @click="actions.email()"
              class="icon icon-tabler icon-tabler-mail ml-2 cursor-pointer animate-scale stroke-current" width="25"
              height="25"
              viewBox="0 0 24 24" stroke-width="1" stroke="#FFFFFF" fill="none"
@@ -69,7 +69,7 @@
            src="../../assets/profile-pic.jpg" alt="Arthur Brière portrait"/>
       <div class="text-lg text-white px-4 h-full flex flex-col items-start justify-center">
         <p class="text-center text-white"><span class="animate-text">Ingénieur d'études</span></p>
-        <p>{{ age }} ans</p>
+        <p>{{ age() }} ans</p>
         <div class="text-center flex justify-center text-white">
           <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-map-2 stroke-current"
                width="20" height="20" viewBox="0 0 24 24" stroke-width="1" stroke="#03A9F4" fill="none"
@@ -101,40 +101,22 @@
 </template>
 
 <script>
-import DarkModeSwitch from "../atoms/DarkModeSwitch.vue";
-import openUrl from "../../utils/urls";
-import {values, presentation} from "../../data";
+import DarkModeSwitch from "../atoms/DarkModeSwitch.vue"
+import { values, presentation } from "../../data"
+import actions from "../../utils/actions"
+import { age } from "../../utils/infos"
+import { ref } from 'vue'
 
 export default {
   components: {DarkModeSwitch},
   name: "Header",
-  data() {
-    return {
-      menuVisible: false,
-      values,
-      presentation
+  setup () {
+    const menuVisible = ref(false)
+    const handleMenuVisibility = () => {
+      menuVisible.value = !menuVisible.value
+      document.body.style.overflow = menuVisible.value ? 'hidden' : 'visible'
     }
-  },
-  methods: {
-    handleUrl(url) {
-      openUrl(url)
-    },
-    callMe() {
-      window.open('tel://+33770473953', '_self')
-    },
-    mailMe() {
-      window.open('mailto:arthur.briere@outlook.fr', '_self')
-    },
-    handleMenuVisibility() {
-      this.menuVisible = !this.menuVisible
-      document.body.style.overflow = this.menuVisible ? 'hidden' : 'visible'
-    }
-  },
-  computed: {
-    age() {
-      const birthDate = new Date('03/19/1996');
-      return Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10)
-    }
+    return { actions, values, presentation, menuVisible, handleMenuVisibility, age }
   }
 }
 </script>
