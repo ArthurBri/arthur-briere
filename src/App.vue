@@ -1,73 +1,79 @@
 <template>
-  <div class="flex">
-    <DarkModeSwitch class="hidden sm:flex md:flex lg:flex xl:flex"/>
-    <Sidebar/>
-    <div class="main-content max-h-screen max-w-full z-10">
-      <div class="header flex sm:hidden md:hidden lg:hidden xl:hidden">
-        <Header/>
-      </div>
-      <div
-          class="body h-full pb-16 py-0 md:py-4 lg:py-8 px-0 sm:px-2 md:px-4 lg:px-6 lg:px-8 mt-12 sm:mt-0 md:mt-0 lg:mt-0 xl:mt-0 overflow-auto">
-        <Projects/>
-        <Skills/>
-        <Experiences/>
+  <div class="flex flex-col">
+    <ButterflyFleet />
+    <Landing />
+    <MouseTracker />
+    <Values-Wall />
+    <div class="fixed z-50 right-2 top-2">
+      <DarkModeSwitch />
+    </div>
+    <Contact />
+    <Menu />
+    <div class="main-content max-w-full flex justify-center">
+      <div class="w-4/5 flex flex-col gap-12 lg:gap-32 pb-16 py-0 md:py-4 lg:py-8 px-0 sm:px-2 md:px-4 lg:px-8 mt-12 sm:mt-0 overflow-auto">
+        <Projects />
+        <Skills />
+        <Experiences />
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { onMounted } from 'vue'
+<script setup>
+import { onMounted, ref, computed } from 'vue'
+import { projects } from './data'
 
 import Projects from './components/organisms/Projects.vue'
 import Skills from './components/organisms/Skills.vue'
 import Experiences from './components/organisms/Experiences.vue'
-import Header from './components/organisms/Header.vue'
-import Sidebar from './components/organisms/Sidebar.vue'
-import DarkModeSwitch from "./components/atoms/DarkModeSwitch.vue"
+import Contact from './components/molecules/Contact.vue'
+import Menu from './components/molecules/Menu.vue'
+import DarkModeSwitch from './components/atoms/DarkModeSwitch.vue'
+import Landing from './components/organisms/Landing.vue'
+import ValuesWall from './components/organisms/Introduction.vue'
+import Section from './components/organisms/Section.vue'
+import ProjectCard from './components/molecules/ProjectCard.vue'
+import MouseTracker from './components/atoms/MouseTracker.vue'
+import ButterflyFleet from './components/organisms/ButterflyFleet.vue'
 
-
-export default {
-  name: 'App',
-  components: {
-    DarkModeSwitch,
-    Projects,
-    Skills,
-    Experiences,
-    Header,
-    Sidebar
-  },
-  setup() {
-    onMounted(() => {
-      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.querySelector('html')?.classList.add('dark')
-        document.getElementById('app')?.classList.add('dark')
-      } else {
-        document.querySelector('html')?.classList.remove('dark')
-        document.getElementById('app')?.classList.remove('dark')
-      }
-    })
+onMounted(() => {
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.querySelector('html')?.classList.add('dark')
+    document.getElementById('app')?.classList.add('dark')
+  } else {
+    document.querySelector('html')?.classList.remove('dark')
+    document.getElementById('app')?.classList.remove('dark')
   }
-}
+})
+
+const projectYearFilter = ref(null)
+const filteredProjects = computed(() => (projectYearFilter.value ? projects.filter((project) => project.creationYear === projectYearFilter.value) : projects))
+
+const projectYears = computed(() => [...new Set(projects.map((project) => project.creationYear))])
 </script>
 
-<style lang="scss">
-@import "src/index.scss";
+<style lang="scss" scoped>
+@import 'src/index.scss';
 
-#app {
-  @apply bg-cover w-screen h-screen overflow-hidden;
-  min-width: 320px;
-  background-image: url('./assets/bg-white.svg');
+.butterfly {
+  animation: xAxis 5s infinite cubic-bezier(0.02, 0.01, 0.21, 1);
+}
 
-  &.dark {
-    background-image: url('./assets/bg-white.svg');
+.butterfly-wrapper {
+  animation: yAxis 5s infinite cubic-bezier(0.3, 0.27, 0.07, 1.64);
+}
+
+@keyframes yAxis {
+  50% {
+    animation-timing-function: cubic-bezier(0.02, 0.01, 0.21, 1);
+    transform: translateY(-200px) rotate(45deg);
   }
 }
 
-@media (min-width: 640px) {
-  .main-content {
-    width: calc(100vw - #{$sidebar-width});
+@keyframes xAxis {
+  50% {
+    animation-timing-function: cubic-bezier(0.3, 0.27, 0.07, 1.64);
+    transform: translateX(200px) rotate(-45deg);
   }
 }
-
 </style>

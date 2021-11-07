@@ -1,66 +1,65 @@
 <template>
-  <div class="flex flex-col items-center content-center justify-between mt-12 mx-8 md:mx-4 m-4">
-    <h1 class="relative font-semibold text-white leading-none mr-4">Expériences & Intérêts</h1>
-    <div class="flex relative overflow-auto text-white mt-2">
-      <span @click="filterType = ''" :class="{'selected': !filterType }"
-            class="relative filter-item mr-4 cursor-pointer">Tous</span>
-      <span @click="filterType = 'experience'" :class="{'selected' : filterType === 'experience' }"
-            class="relative filter-item mr-4 cursor-pointer">Expériences</span>
-      <span @click="filterType = 'interest'" :class="{'selected': filterType === 'interest' }"
-            class="relative filter-item mr-4 cursor-pointer">Centres d'intérêt</span>
-    </div>
-  </div>
-  <div class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 px-2 justify-center">
-    <transition-group name="experiences">
-      <ExperienceCard v-for="(experience, index) in filteredExperiences" :experience="experience" :key="index" />
-    </transition-group>
-  </div>
+  <Section title="Experiences" id="experiences">
+    <template v-slot:description>
+      <ul class="flex relative overflow-auto mt-2 whitespace-nowrap">
+        <li @click="filterType = ''" :class="{ selected: !filterType }" class="relative filter-item mr-4 cursor-pointer">Tous</li>
+        <li
+          @click="filterType = 'experience'"
+          :class="{ selected: filterType === 'experience' }"
+          class="relative filter-item mr-4 cursor-pointer"
+        >
+          Expériences
+        </li>
+        <li
+          @click="filterType = 'interest'"
+          :class="{ selected: filterType === 'interest' }"
+          class="relative filter-item mr-4 cursor-pointer"
+        >
+          Centres d'intérêt
+        </li>
+      </ul>
+    </template>
+    <template v-slot:items>
+      <transition-group
+        name="experiences-transition"
+        tag="div"
+        class="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 px-2 justify-center"
+      >
+        <ExperienceCard v-for="experience in filteredExperiences" :experience="experience" :key="experience.name" />
+      </transition-group>
+    </template>
+  </Section>
 </template>
 
-<script>
+<script setup>
 import { experiences } from '../../data'
-import ExperienceCard  from "../molecules/ExperienceCard.vue"
-import { defineComponent, ref, computed } from "vue"
+import ExperienceCard from '../molecules/ExperienceCard.vue'
+import Section from '../organisms/Section.vue'
+import { defineComponent, ref, computed } from 'vue'
 
-export default defineComponent({
-  name: 'Experiences',
-  components: { ExperienceCard },
-  setup() {
-    const filterType = ref('')
-    const filteredExperiences = computed(() => filterType.value
-        ? experiences.filter(experience => experience.type === filterType.value)
-        : experiences
-    )
-    return { filterType, filteredExperiences }
-  }
-})
+const filterType = ref('')
+const filteredExperiences = computed(() =>
+  filterType.value ? experiences.filter((experience) => experience.type === filterType.value) : experiences
+)
 </script>
 
-<style>
-.filter-item:after {
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 2px;
-  left: 50%;
+<style lang="scss">
+.experiences {
+  @apply flex;
+  animation: fadeIn 1000ms ease-in;
+}
+
+.experiences-transition-enter-from {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.experiences-transition-leave-active {
+  transition: all 300ms ease;
   position: absolute;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  width: 0;
+  z-index: -10;
+  opacity: 0;
+  width: 300px;
+  height: 300px;
 }
-
-.filter-item:hover:after {
-  @apply block bg-white rounded-full absolute;
-  left: 0;
-  content: "";
-  height: 2px;
-  width: 100%;
-}
-
-.filter-item.selected:after {
-  @apply block bg-white rounded-full absolute;
-  width: 100%;
-  left: 0;
-}
-
 </style>

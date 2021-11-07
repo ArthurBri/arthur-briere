@@ -1,66 +1,77 @@
 <template>
-  <div class="flex flex-col items-center content-center justify-between mt-12 mx-8 md:mx-4 m-4">
-    <h1 class="relative font-semibold text-white leading-none mr-4">Compétences</h1>
-    <div class="flex relative overflow-auto text-white mt-2">
-      <span @click="skillsTypeFilter = null" :class="{'selected': !skillsTypeFilter }"
-            class="relative filter-item mr-4 cursor-pointer">Toutes</span>
-      <span @click="skillsTypeFilter = 'technical'" :class="{'selected': skillsTypeFilter === 'technical' }"
-            class="relative filter-item mr-4 cursor-pointer">Techniques</span>
-      <span @click="skillsTypeFilter = 'human'" :class="{'selected': skillsTypeFilter === 'human' }"
-            class="relative filter-item mr-4 cursor-pointer">Humaines</span>
-      <span @click="skillsTypeFilter = 'project'" :class="{'selected': skillsTypeFilter === 'project' }"
-            class="relative filter-item mr-4 cursor-pointer">Projet</span>
-    </div>
-  </div>
-  <div class="flex justify-center flex-wrap">
-    <SkillCard v-for="(skill, index) in filteredSKills" :skill="skill" :key="index" />
-  </div>
+  <Section title="Compétences" order="reverse" id="skills">
+    <template v-slot:description>
+      <ul class="flex relative overflow-auto mt-2">
+        <li
+          v-for="skillType in skillsTypes"
+          :key="skillType.label"
+          @click="skillsTypeFilter = skillType.value"
+          :class="{ selected: skillsTypeFilter === skillType.value }"
+          class="relative filter-item mr-4 cursor-pointer"
+        >
+          {{ skillType.label }}
+        </li>
+      </ul>
+      <div class="text-left my-4">
+        Il y en a pour tous les goûts. Je ne me limite pas à la technique, je considère que l'état d'esprit et les valeurs sont tous aussi
+        importants dans un projet.
+      </div>
+    </template>
+    <template v-slot:items>
+      <transition-group name="skills-transition" tag="div" class="flex flex-wrap justify-evenly content-start gap-4">
+        <SkillCard v-for="skill in filteredSKills" :skill="skill" :key="skill.name" />
+      </transition-group>
+    </template>
+  </Section>
 </template>
 
-<script>
-import SkillCard from "../molecules/SkillCard.vue";
+<script setup>
+import SkillCard from '../molecules/SkillCard.vue'
+import Section from '../organisms/Section.vue'
 import { skills } from '../../data'
 import { ref, computed } from 'vue'
 
-export default {
-  name: 'Projects',
-  components: { SkillCard },
-  setup () {
-    const skillsTypeFilter = ref(null)
-    const filteredSKills = computed(() =>
-      skillsTypeFilter.value
-        ? skills.filter(skill => skill.type === skillsTypeFilter.value).sort(() => 0.5 - Math.random())
-        : skills.sort(() =>  0.5 - Math.random())
-    )
-    return { skillsTypeFilter, filteredSKills }
-  }
-}
+const skillsTypes = [
+  { value: 'project', label: 'Projects' },
+  { value: 'human', label: 'Humaines' },
+  { value: 'technical', label: 'Techniques' },
+  { value: null, label: 'Toutes' },
+]
+
+const skillsTypeFilter = ref(null)
+const filteredSKills = computed(() =>
+  skillsTypeFilter.value ? skills.filter((skill) => skill.type === skillsTypeFilter.value).sort(() => 0.5 - Math.random()) : skills
+)
 </script>
 
-<style scoped>
-.filter-item:after {
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 2px;
-  left: 50%;
+<style scoped lang="scss">
+.skills {
+  @apply flex;
+  animation: fadeIn 1000ms ease-in;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.skills-transition-enter-from {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.skills-transition-leave-active {
+  transition: all 300ms ease;
   position: absolute;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  width: 0;
-}
-
-.filter-item:hover:after {
-  @apply block bg-white rounded-full absolute;
-  left: 0;
-  content: "";
-  height: 2px;
-  width: 100%;
-}
-
-.filter-item.selected:after {
-  @apply block bg-white rounded-full absolute;
-  width: 100%;
-  left: 0;
+  z-index: -10;
+  opacity: 0;
+  width: 6rem;
+  height: 3rem;
 }
 </style>

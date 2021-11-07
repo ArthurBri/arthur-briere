@@ -1,6 +1,7 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
+  mode: 'jit',
   darkMode: 'class',
   future: {
     removeDeprecatedGapUtilities: true,
@@ -16,6 +17,9 @@ module.exports = {
   },
   theme: {
     extend: {
+      fontFamily: {
+        sora: ['Sora']
+      },
       screen: {
         'xs': '320px'
       },
@@ -29,6 +33,10 @@ module.exports = {
       },
       borderWidth: {
         '6': '6px'
+      },
+      boxShadow: {
+        ab: 'rgba(0, 0, 0, 0.1) 0px 1px 2px 0px',
+        'ab-lg': 'rgba(0, 0, 0, 0.1) 0px 1px 2px 0px'
       }
     }
   },

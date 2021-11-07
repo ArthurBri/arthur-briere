@@ -4,25 +4,53 @@
 /* purgecss end ignore */
 @tailwind utilities;
 
+@font-face {
+  font-family: Sora;
+  src: url('assets/fonts/Sora.ttf') format("truetype");
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-color-scheme: light) { 
+  html {
+    @apply bg-gray-100;
+    cursor: url('./assets/icons/dot-dark.svg') 4 4, auto;
+  }
+}
+
+@media (prefers-color-scheme: dark) { 
+  html {
+    cursor: url('./assets/icons/dot-dark.svg') 4 4, auto;
+  }
+}
+
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  @apply text-ab-gray dark:text-white transition-colors duration-300;
+  @apply font-sora text-ab-gray dark:text-white duration-300 bg-gray-100 dark:bg-gray-800;
 }
 
 ::-webkit-scrollbar {
-  background-color: transparent;
-  border-radius: 20px;
-  border: 7px solid transparent;
-  background-clip: content-box;
+  @apply bg-none border-4 w-2;
+
+  &::before {
+    position: absolute;
+    content: '';
+    background: red;
+    left: -2px;
+    width: 4px;
+    height: 4px;
+  }
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-opacity-85 dark:bg-gray-800 rounded-full;
+  @apply bg-opacity-85 bg-gray-800 rounded-full;
   backdrop-filter: blur(5px);
-  border: 6px solid transparent;
+  border: 2px solid transparent;
   background-clip: content-box;
 }
 
@@ -30,84 +58,31 @@ h1 {
   @apply text-2xl md:text-2xl lg:text-3xl;
 }
 
-$sidebar-width: 350px;
-
-.animate-text {
-  @apply text-ab-primary dark:text-teal-400 opacity-50 hover:opacity-100 font-bold outline-none cursor-default;
-  display: inline-block;
-  position: relative;
+.filter-item {
+  @apply relative;
 }
 
-.animate-text:focus {
-  outline: 0;
-}
-
-.animate-text:before, .animate-text:after {
+.filter-item:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 1px;
+  left: 50%;
   position: absolute;
-  content: '';
-  display: block;
-  width: 140%;
-  height: 100%;
-  left: -20%;
-  z-index: -1000;
-  transition: all ease-in-out 0.5s;
-  background-repeat: no-repeat;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
 }
 
-.animate-text:before {
-  display: none;
-  top: -75%;
-  background-image: radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, transparent 20%, #285E61 20%, transparent 30%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, transparent 10%, #285E61 15%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%);
-  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+.filter-item:hover:after, .filter-item.selected:after {
+  @apply block bg-ab-gray dark:bg-white rounded-full absolute;
+  left: 0;
+  bottom: 0;
+  content: "";
+  height: 2px;
+  width: 100%;
 }
 
-.animate-text:after {
-  display: none;
-  bottom: -75%;
-  background-image: radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, transparent 10%, #285E61 15%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%), radial-gradient(circle, #285E61 20%, transparent 20%);
-  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
-}
-
-.animate-text:active {
-  transform: scale(0.9);
-}
-
-.animate-text.animate:before {
-  display: block;
-  animation: topBubbles ease-in-out 0.75s forwards;
-}
-
-.animate-text.animate:after {
-  display: block;
-  animation: bottomBubbles ease-in-out 0.75s forwards;
-}
-
-@keyframes topBubbles {
-  0% {
-    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
-  }
-  50% {
-    background-position: 0 80%, 0 20%, 10% 40%, 20% 0, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
-  }
-  100% {
-    background-position: 0 70%, 0 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
-    background-size: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
-  }
-}
-
-@keyframes bottomBubbles {
-  0% {
-    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0;
-  }
-  50% {
-    background-position: 0 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0;
-  }
-  100% {
-    background-position: 0 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
-    background-size: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0;
-  }
-}
-
-.animate-scale {
-  @apply transition duration-300 ease-in-out transform hover:scale-110;
+button {
+  @apply flex items-center gap-2 justify-between bg-white hover:bg-ab-primary hover:text-white rounded-xl dark:text-white bg-opacity-70 transition-all shadow-ab duration-300 py-1;
 }

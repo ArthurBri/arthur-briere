@@ -1,7 +1,8 @@
 import vue from '@vitejs/plugin-vue'
+import svgLoader from 'vite-svg-loader'
 
 export default {
-    plugins: [vue()],
+    plugins: [vue(), svgLoader()],
     optimizeDeps: {
         exclude: ['tailwindcss'],
     },
