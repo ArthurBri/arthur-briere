@@ -38,11 +38,11 @@
         </div>
       </template>
       <template v-slot:bottom-right>
-        <img src="../../assets/profile-pic.jpeg" alt="Arthur Brière portrait" class="w-full h-full bg-cover" />
+        <img :src="ProfilePic" alt="Arthur Brière portrait" class="w-full h-full bg-cover" />
       </template>
     </Butterfly>
   </div>
-  <button class="scroll-for-more" @click="scrollToNext">
+  <button class="scroll-for-more" @click="scrollToNext" aria-label="scroll to next">
     <Icon kind="chevrons-down" />
   </button>
 </template>
@@ -51,6 +51,7 @@
 import { ref, onMounted } from 'vue'
 import Icon from '../atoms/Icon.vue'
 import Butterfly from '../molecules/Butterfly.vue'
+import ProfilePic from '../../assets/profile-pic.jpeg?webp'
 
 const scrollToNext = () => {
   window.scrollTo({

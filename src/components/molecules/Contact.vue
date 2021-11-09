@@ -1,18 +1,18 @@
 <template>
   <div class="links">
-    <button @click="openUrl('https://www.linkedin.com/in/arthur-brière/')">
+    <button @click="openUrl('https://www.linkedin.com/in/arthur-brière/')" aria-label="linkedin">
       <Icon kind="linkedin" as="div" class="stroke-current text-white" />
       <div class="link-label">LinkedIn</div>
     </button>
-    <button @click="call()">
+    <button @click="call()" aria-label="call">
       <Icon kind="phone" as="div" class="stroke-current text-white" />
       <div class="link-label">Téléphone</div>
     </button>
-    <button @click="email()">
+    <button @click="email()" aria-label="email">
       <Icon kind="email" as="div" class="stroke-current text-white" />
       <div class="link-label">Email</div>
     </button>
-    <button @click="email()">
+    <button @click="email()" aria-label="cv">
       <Icon kind="news" as="div" class="stroke-current text-white" />
       <div class="link-label">CV</div>
     </button>

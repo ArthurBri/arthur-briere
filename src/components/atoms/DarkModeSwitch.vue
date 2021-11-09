@@ -1,5 +1,5 @@
 <template>
-  <button @click="darkModeEnabled = !darkModeEnabled" class="p-1 relative">
+  <button @click="darkModeEnabled = !darkModeEnabled" class="p-1 relative" aria-label="dark mode switch">
     <Component :is="darkModeEnabled ? MoonIcon : SunIcon" class="w-8 h-8 stroke-current" />
   </button>
 </template>

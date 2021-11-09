@@ -1,5 +1,5 @@
 <template>
-  <button class="menu-switcher fixed right-2 top-2 p-2 z-50" @click="isOpened = !isOpened">
+  <button class="menu-switcher fixed right-2 top-2 p-2 z-50" @click="isOpened = !isOpened" aria-label="open menu">
     <svg
       v-if="!isOpened"
       xmlns="http://www.w3.org/2000/svg"
