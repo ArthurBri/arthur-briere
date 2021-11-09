@@ -13,7 +13,7 @@
         </li>
       </ul>
       <div class="text-left my-4">
-        Il y en a pour tous les goûts. Je ne me limite pas à la technique, je considère que l'état d'esprit et les valeurs sont tous aussi
+        J'essaie de ne pas me concentrer uniquement sur la technique, considérant qu'un bon état d'esprit et des valeurs sont tous aussi
         importants dans un projet.
       </div>
     </template>
@@ -32,10 +32,10 @@ import { skills } from '../../data'
 import { ref, computed } from 'vue'
 
 const skillsTypes = [
-  { value: 'project', label: 'Projects' },
-  { value: 'human', label: 'Humaines' },
-  { value: 'technical', label: 'Techniques' },
   { value: null, label: 'Toutes' },
+  { value: 'technical', label: 'Techniques' },
+  { value: 'human', label: 'Humaines' },
+  { value: 'project', label: 'Projets' },
 ]
 
 const skillsTypeFilter = ref(null)

@@ -1,10 +1,10 @@
 <template>
-  <component v-if="isSvgIcon" :is='svgComponent' class="stroke-current" />
+  <component v-if="isSvgIcon" :is="svgComponent" class="stroke-current" />
   <img v-else-if="isPngIcon" :src="imgSource" />
 </template>
 
 <script setup>
-import { onMounted, defineProps, ref, h } from 'vue'
+import { onMounted, ref, h } from 'vue'
 const svgComponent = ref()
 const imgSource = ref('')
 
@@ -13,7 +13,7 @@ const isPngIcon = ref(false)
 
 const props = defineProps({
   kind: String,
-  as: String
+  as: String,
 })
 
 onMounted(async () => {
@@ -22,20 +22,16 @@ onMounted(async () => {
   isPngIcon.value = icons[`../../assets/icons/${props.kind}.png`]
 
   if (!isSvgIcon && !isPngIcon) {
-    console.log(`icon '${props.kind}' is missing from icon folder. Nothing will be rendered.`)
+    console.log(`icon '${props.kind}' is missing from icon folder. Nothing is going to be rendered.`)
     return
   }
 
   if (isSvgIcon.value) {
     const currentIcon = await icons[`../../assets/icons/${props.kind}.svg`]()
-    svgComponent.value = props.as 
-      ? h(props.as, {}, currentIcon.default())
-      : currentIcon.default
+    svgComponent.value = props.as ? h(props.as, {}, currentIcon.default()) : currentIcon.default
   } else if (isPngIcon.value) {
     const currentIcon = await icons[`../../assets/icons/${props.kind}.png`]()
-    imgSource.value = props.as
-      ? h(props.as, {}, currentIcon.default())
-      : currentIcon.default
+    imgSource.value = props.as ? h(props.as, {}, currentIcon.default()) : currentIcon.default
   }
 })
 </script>

@@ -1,20 +1,20 @@
 <template>
   <div class="links">
     <button @click="openUrl('https://www.linkedin.com/in/arthur-brière/')">
-      <Icon kind="linkedin" as="div"/>
-      <div>LinkedIn</div>
+      <Icon kind="linkedin" as="div" class="stroke-current text-white" />
+      <div class="link-label">LinkedIn</div>
     </button>
     <button @click="call()">
-      <Icon kind="phone" as="div"/>
-      <div>Téléphone</div>
+      <Icon kind="phone" as="div" class="stroke-current text-white" />
+      <div class="link-label">Téléphone</div>
     </button>
     <button @click="email()">
-      <Icon kind="email" as="div"/>
-      <div>Email</div>
+      <Icon kind="email" as="div" class="stroke-current text-white" />
+      <div class="link-label">Email</div>
     </button>
     <button @click="email()">
-      <Icon kind="news" as="div"/>
-      <div>CV</div>
+      <Icon kind="news" as="div" class="stroke-current text-white" />
+      <div class="link-label">CV</div>
     </button>
   </div>
 </template>
@@ -26,16 +26,20 @@ import Icon from '../atoms/Icon.vue'
 
 <style lang="scss" scoped>
 .links {
-  @apply fixed shadow-lg bg-ab-primary bg-opacity-70 text-white flex left-0 top-0 lg:top-6 lg:left-6 lg:w-12 lg:flex-col overflow-hidden transition-all duration-500 backdrop-filter backdrop-blur-md backdrop-saturate-150 gap-1 p-2 z-20 rounded-2xl;
+  @apply fixed shadow-lg bg-ab-primary bg-opacity-70 text-white flex left-1/2 transform -translate-x-1/2 lg:translate-x-0 bottom-4 lg:bottom-auto lg:top-6 lg:left-6 lg:w-12 lg:flex-col overflow-hidden transition-all duration-500 backdrop-filter backdrop-blur-md backdrop-saturate-150 gap-1 p-2 z-20 rounded-2xl;
 
   &:hover {
     @apply lg:w-36;
   }
+
+  .link-label {
+    @apply hidden lg:block;
+  }
 }
 
 button {
-  @apply pr-2 bg-transparent shadow-none;
-  ::v-deep * > svg {
+  @apply pr-2 bg-transparent dark:bg-transparent shadow-none;
+  :deep(svg) {
     @apply w-8 h-8 stroke-current p-1;
   }
 }

@@ -1,12 +1,6 @@
 <template>
-  <button 
-    @click="darkModeEnabled = !darkModeEnabled" 
-    class="p-1 relative text-ab-gray hover:text-white dark:text-white" 
-  >
-    <Component 
-      :is="darkModeEnabled ? MoonIcon : SunIcon"
-      class="w-8 h-8 stroke-current" 
-    />
+  <button @click="darkModeEnabled = !darkModeEnabled" class="p-1 relative">
+    <Component :is="darkModeEnabled ? MoonIcon : SunIcon" class="w-8 h-8 stroke-current" />
   </button>
 </template>
 
@@ -15,7 +9,9 @@ import { ref, watch } from 'vue'
 import SunIcon from '../../assets/icons/sun.svg'
 import MoonIcon from '../../assets/icons/moon.svg'
 
-const darkModeEnabled = ref((localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)))
+const darkModeEnabled = ref(
+  localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+)
 
 watch(darkModeEnabled, () => {
   if (darkModeEnabled.value) {
@@ -30,5 +26,4 @@ watch(darkModeEnabled, () => {
 })
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="intro flex justify-between items-center relative h-screen overflow-hidden" id="intro">
+  <div class="intro flex-col xl:flex-row flex justify-between items-center relative lg:h-screen overflow-hidden" id="intro">
     <div class="values">
       <div
         class="value text-left"
@@ -11,9 +11,9 @@
       </div>
     </div>
 
-    <div class="flex flex-col w-full items-center px-24 text-justify">
+    <div class="flex flex-col w-full items-center lg:px-24 text-justify">
       <div class="presentation" v-html="presentation" />
-      <div class="flex items-center justify-center gap-8 text-white">
+      <div class="flex flex-wrap items-center justify-center gap-8 px-4 text-white">
         <div
           class="
             w-24
@@ -65,7 +65,7 @@
             bg-ab-primary
           "
         >
-          <span class="text-lg">3 ans</span>
+          <span class="text-lg">3.5 ans</span>
           <Icon class="w-8 h-8 stroke-current" kind="skyscrapper" />
         </div>
         <div
@@ -110,7 +110,7 @@ import Icon from '../atoms/Icon.vue'
 
 <style lang="scss">
 .values {
-  @apply flex flex-col gap-0 lg:gap-6 justify-evenly text-gray-200 text-4xl px-2;
+  @apply flex flex-row w-screen lg:w-auto lg:flex-col gap-2 lg:gap-6 justify-evenly text-gray-200 text-4xl px-2 my-8;
   animation: lateralMove 20s linear infinite;
   animation-direction: alternate-reverse;
 }
@@ -120,7 +120,7 @@ import Icon from '../atoms/Icon.vue'
 
   &:before,
   &:after {
-    @apply absolute h-12 dark:h-20 w-full;
+    @apply absolute h-20 dark:h-20 w-full;
     content: '';
   }
 
@@ -139,19 +139,30 @@ import Icon from '../atoms/Icon.vue'
 }
 
 .presentation {
-  @apply flex flex-col rounded-2xl items-center justify-center text-ab-gray dark:text-white p-8 text-left text-xl;
+  @apply flex flex-col rounded-2xl items-center justify-center text-ab-gray dark:text-white p-8 text-left;
 
   h1 {
-    @apply text-6xl leading-loose;
+    @apply text-4xl lg:text-6xl leading-none pb-2 lg:leading-loose;
   }
 }
 
 @keyframes lateralMove {
   0% {
-    transform: translateY(100%);
+    transform: translateX(100%);
   }
   100% {
-    transform: translateY(-100%);
+    transform: translateX(-100%);
+  }
+}
+
+@screen lg {
+  @keyframes lateralMove {
+    0% {
+      transform: translateY(100%);
+    }
+    100% {
+      transform: translateY(-100%);
+    }
   }
 }
 </style>

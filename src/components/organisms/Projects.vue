@@ -1,4 +1,7 @@
 <template>
+  <!-- <div class="absolute h-full w-full left-0 top-0">
+    <ButterflyFleet :butterflies="butterflies" />
+  </div>-->
   <Section title="Projets" id="projects">
     <template v-slot:description>
       <ul class="flex relative overflow-auto mt-2 gap-2">
@@ -40,13 +43,20 @@
 import { computed, ref } from 'vue'
 import ProjectCard from '../molecules/ProjectCard.vue'
 import Section from '../organisms/Section.vue'
+import ButterflyFleet from '../organisms/ButterflyFleet.vue'
 import { projects } from '../../data'
 
 const projectYearFilter = ref(null)
-const filteredProjects = computed(() => projectYearFilter.value
+const filteredProjects = computed(() =>
+  projectYearFilter.value
     ? projects.filter((project) => [project.creationYear, project.updateYear].includes(projectYearFilter.value))
     : projects
 )
+
+const butterflies = [
+  { left: '100%', top: '35%', transform: 'rotateX(45deg)' },
+  { left: '20%', top: '55%' },
+]
 
 const projectYears = computed(() => [...new Set(projects.flatMap((project) => (project.creationYear ? [project.creationYear] : [])))])
 </script>

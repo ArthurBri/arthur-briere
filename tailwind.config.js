@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors')
+const { teal } = require('tailwindcss/colors')
 
 module.exports = {
   mode: 'jit',
@@ -9,36 +9,29 @@ module.exports = {
   },
   purge: {
     enable: true,
-    content: [
-      './src/**/*.html',
-      './src/**/*.vue',
-      './src/**/*.ts'
-    ]
+    content: ['./src/**/*.html', './src/**/*.vue', './src/**/*.ts'],
   },
   theme: {
     extend: {
       fontFamily: {
-        sora: ['Sora']
-      },
-      screen: {
-        'xs': '320px'
+        sora: ['Sora'],
       },
       colors: {
-        teal: colors.teal,
-        'ab-primary': colors.teal["800"],
-        'ab-gray': '#233140'
+        'ab-primary': teal['800'],
+        'ab-gray': '#233140',
       },
       opacity: {
-        '85': '0.85'
-      },
-      borderWidth: {
-        '6': '6px'
+        85: '0.85',
       },
       boxShadow: {
         ab: 'rgba(0, 0, 0, 0.1) 0px 1px 2px 0px',
-        'ab-lg': 'rgba(0, 0, 0, 0.1) 0px 1px 2px 0px'
+        'ab-lg': 'rgba(0, 0, 0, 0.1) 0px 1px 2px 0px',
+      },
+      borderRadius: {
+        4: '4%',
+        
       }
-    }
+    },
   },
   variants: {},
   plugins: [],

@@ -6,32 +6,33 @@
 
 @font-face {
   font-family: Sora;
-  src: url('assets/fonts/Sora.ttf') format("truetype");
+  src: url('assets/fonts/Sora.ttf') format('truetype');
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
-@media (prefers-color-scheme: light) { 
+@media (prefers-color-scheme: light) {
   html {
-    @apply bg-gray-100;
+    @apply bg-gray-50;
     cursor: url('./assets/icons/dot-dark.svg') 4 4, auto;
   }
 }
 
-@media (prefers-color-scheme: dark) { 
+@media (prefers-color-scheme: dark) {
   html {
+    @apply dark:bg-gray-800;
     cursor: url('./assets/icons/dot-dark.svg') 4 4, auto;
   }
 }
-
 
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  @apply font-sora text-ab-gray dark:text-white duration-300 bg-gray-100 dark:bg-gray-800;
+  @apply font-sora text-ab-gray dark:text-white overflow-x-hidden bg-gray-100 dark:bg-gray-800;
 }
 
 ::-webkit-scrollbar {
@@ -40,7 +41,6 @@ html {
   &::before {
     position: absolute;
     content: '';
-    background: red;
     left: -2px;
     width: 4px;
     height: 4px;
@@ -65,7 +65,7 @@ h1 {
 .filter-item:after {
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
-  content: "";
+  content: '';
   display: block;
   height: 1px;
   left: 50%;
@@ -74,15 +74,20 @@ h1 {
   width: 0;
 }
 
-.filter-item:hover:after, .filter-item.selected:after {
+.filter-item:hover:after,
+.filter-item.selected:after {
   @apply block bg-ab-gray dark:bg-white rounded-full absolute;
   left: 0;
   bottom: 0;
-  content: "";
+  content: '';
   height: 2px;
   width: 100%;
 }
 
 button {
-  @apply flex items-center gap-2 justify-between bg-white hover:bg-ab-primary hover:text-white rounded-xl dark:text-white bg-opacity-70 transition-all shadow-ab duration-300 py-1;
+  @media (pointer: none) {
+    @apply hover:bg-ab-primary hover:text-white;
+  }
+
+  @apply flex items-center gap-2 justify-between bg-white dark:bg-gray-200 rounded-xl dark:text-ab-primary transition-all shadow-ab duration-300 py-1;
 }
