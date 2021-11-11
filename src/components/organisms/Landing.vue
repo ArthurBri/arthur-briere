@@ -31,7 +31,7 @@
             </svg>
           </div>
           <div class="flex items-center justify-center gap-1 lg:gap-2 m-2 text-xs lg:text-base">
-            <Icon kind="map-pin" class="text-white w-4 h-4 lg:w-8 lg:h-8" />
+            <Icon kind="map-pin" class="text-white stroke-current w-4 h-4 lg:w-8 lg:h-8" />
             <span>Rennes</span>
             <span class="hidden lg:block">France</span>
           </div>

@@ -1,12 +1,24 @@
 <template>
   <div class="project-card">
+    <div class="project-card-overlay">
+      <a v-if="project.repo" :href="project.repo" target="_blank">
+        <Icon kind="github" as="i" />
+      </a>
+      <a v-else-if="project.url" :href="project.url" target="_blank">
+        <Icon kind="external-link" as="i" />
+      </a>
+      <div class="flex items-center" v-else-if="project.status === 'build'" title="En construction">
+        <span>Je travaille dessus</span>
+        <span class="text-4xl ml-2">👨‍💻</span>
+      </div>
+      <p class="text-xs" v-else>Projet d'entraînement, non déployé, mais on pourra en parler ;)</p>
+    </div>
     <div class="card p-4 flex h-full justify-between flex-col w-full rounded-lg">
       <div>
         <div class="card-header flex justify-between w-full items-start">
           <div class="font-bold text-left text-gray-800 dark:text-gray-200 text-2xl leading-tight">
             <div class="card-title flex">
               <div>{{ project.name }}</div>
-              <div class="ml-2" v-if="project.type === 'build'" title="En construction">👨‍💻</div>
             </div>
             <div class="flex gap-2">
               <div class="font-bold text-sm" v-if="!project.updateYear">{{ project.creationYear }}</div>
@@ -55,6 +67,28 @@ const tagNames = props.project?.tags.map((tag) => ({ name: findTagName(tag), lab
 
 <style scoped lang="scss">
 .project-card {
-  @apply hover:scale-110 transform transition bg-white dark:bg-ab-primary rounded-md relative flex flex-col bg-opacity-75 backdrop-blur-sm backdrop-saturate-150 shadow-ab z-10;
+  @apply hover:scale-110 transform transition bg-white dark:bg-ab-primary rounded-md relative flex flex-col bg-opacity-75 backdrop-blur-sm backdrop-saturate-150 shadow-ab z-10 overflow-hidden;
+
+  &:hover {
+    .project-card-overlay {
+      @apply opacity-100;
+    }
+  }
+}
+
+.project-card-overlay {
+  @apply absolute flex text-white m-4 p-2 items-center justify-center left-0 bottom-0 rounded-md right-0 h-16 bg-ab-primary bg-opacity-80 backdrop-blur-lg backdrop-saturate-200 opacity-0 transition-opacity;
+
+  a {
+    @apply hover:scale-110 transition-transform;
+  }
+
+  > a + a {
+    @apply ml-8;
+  }
+}
+
+i ::v-deep(svg) {
+  @apply text-white stroke-current stroke-1 w-8 h-8;
 }
 </style>

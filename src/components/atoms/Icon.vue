@@ -1,5 +1,5 @@
 <template>
-  <component v-if="isSvgIcon" :is="svgComponent" class="stroke-current" />
+  <component v-if="isSvgIcon" :is="svgComponent" />
   <img v-else-if="isWebpIcon" :src="imgSource" :alt="kind" />
 </template>
 
@@ -22,7 +22,7 @@ onMounted(async () => {
   isWebpIcon.value = icons[`../../assets/icons/${props.kind}.webp`]
 
   if (!isSvgIcon && !isWebpIcon) {
-    console.log(`icon '${props.kind}' is missing from icon folder. Nothing is going to be rendered.`)
+    import.meta.env.DEV && console.log(`icon '${props.kind}' is missing from icon folder. Nothing is going to be rendered.`)
     return
   }
 

@@ -32,12 +32,12 @@
     </svg>
   </button>
   <div v-if="isOpened" class="menu fixed z-40 h-screen w-screen top-0 left-0 bg-gray-100 dark:bg-ab-gray flex items-center justify-center">
-    <div class="flex flex-col gap-4 items-center justify-center text-2xl" @click="isOpened = !isOpened">
-      <a class="filter-item" href="#intro">Présentation</a>
-      <a class="filter-item" href="#projects">Projets</a>
-      <a class="filter-item" href="#skills">Compétences</a>
-      <a class="filter-item" href="#experiences">Expériences</a>
-    </div>
+    <ul class="flex flex-col gap-4 items-center justify-center text-2xl" @click="isOpened = !isOpened">
+      <li class="filter-item"><a href="#intro">Présentation</a></li>
+      <li class="filter-item"><a href="#projects">Projets</a></li>
+      <li class="filter-item"><a href="#skills">Compétences</a></li>
+      <li class="filter-item"><a href="#experiences">Expériences</a></li>
+    </ul>
     <div class="z-50 absolute bottom-12 right-1/2 translate-x-1/2">
       <DarkModeSwitch />
     </div>
