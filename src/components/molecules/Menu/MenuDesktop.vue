@@ -13,7 +13,7 @@
       text-ab-gray
       dark:text-white
       backdrop-blur-xl
-      bg-gray-200
+      bg-gray-100
       dark:bg-gray-800
       bg-opacity-90
       p-4

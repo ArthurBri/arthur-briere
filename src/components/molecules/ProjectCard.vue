@@ -1,12 +1,18 @@
 <template>
   <div class="project-card">
     <div class="project-card-overlay">
-      <a v-if="project.repo" :href="project.repo" target="_blank">
-        <Icon kind="github" as="i" />
-      </a>
-      <a v-else-if="project.url" :href="project.url" target="_blank">
-        <Icon kind="external-link" as="i" />
-      </a>
+      <ul v-if="project.repo || project.url" class="flex">
+        <li>
+          <a v-if="project.repo" :href="project.repo" target="_blank">
+            <Icon kind="github" as="i" />
+          </a>
+        </li>
+        <li>
+          <a v-if="project.url" :href="project.url" target="_blank">
+            <Icon kind="external-link" as="i" />
+          </a>
+        </li>
+      </ul>
       <div class="flex items-center" v-else-if="project.status === 'build'" title="En construction">
         <span>Je travaille dessus</span>
         <span class="text-4xl ml-2">👨‍💻</span>
@@ -79,11 +85,11 @@ const tagNames = props.project?.tags.map((tag) => ({ name: findTagName(tag), lab
 .project-card-overlay {
   @apply absolute flex text-white m-4 p-2 items-center justify-center left-0 bottom-0 rounded-md right-0 h-16 bg-ab-primary bg-opacity-80 backdrop-blur-lg backdrop-saturate-200 opacity-0 transition-opacity;
 
-  a {
+  li {
     @apply hover:scale-110 transition-transform;
   }
 
-  > a + a {
+  li + li {
     @apply ml-8;
   }
 }

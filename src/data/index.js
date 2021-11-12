@@ -109,8 +109,16 @@ export const projects = [
     status: 'public',
     description: `Outil de génération d'étiquettes pour l'épicerie coopérative rennaise Breizhicoop, via l'utilisation d'apis (ERP Odoo, OpenFoodFact)`,
     logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1602744275/geckoop-logo_cyg625.png',
-    url: 'https://geckoop-dev.breizhicoop.fr/',
+    url: 'https://geckoop.breizhicoop.fr/',
     tags: ['Python', 'Django', 'jQuery', 'Bulma'],
+  },
+  {
+    name: 'Atelier B',
+    creationYear: '2018',
+    updateYear: '2021',
+    description: `e-boutique de créatrice textile. Intégration wordpress rafraîchie en 2021`,
+    url: 'https://atelierb-creations.fr',
+    tags: ['Wordpress'],
   },
   {
     name: 'Clinique du Droit Rouen',
