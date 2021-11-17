@@ -1,26 +1,34 @@
 <template>
-  <div class="links">
-    <button @click="openUrl('https://www.linkedin.com/in/arthur-brière/')" aria-label="linkedin">
-      <Icon kind="linkedin" as="div" class="stroke-current text-white" />
-      <div class="link-label">LinkedIn</div>
-    </button>
-    <button @click="call()" aria-label="call">
-      <Icon kind="phone" as="div" class="stroke-current text-white" />
-      <div class="link-label">Téléphone</div>
-    </button>
-    <button @click="email()" aria-label="email">
-      <Icon kind="email" as="div" class="stroke-current text-white" />
-      <div class="link-label">Email</div>
-    </button>
-    <button @click="email()" aria-label="cv">
-      <Icon kind="news" as="div" class="stroke-current text-white" />
-      <div class="link-label">CV</div>
-    </button>
-  </div>
+  <ul class="links">
+    <li>
+      <button @click="openUrl('https://www.linkedin.com/in/arthur-brière/')" aria-label="linkedin">
+        <Icon kind="linkedin" as="div" class="stroke-current text-white" />
+        <div class="link-label">LinkedIn</div>
+      </button>
+    </li>
+    <li>
+      <button @click="call()" aria-label="call">
+        <Icon kind="phone" as="div" class="stroke-current text-white" />
+        <div class="link-label">Téléphone</div>
+      </button>
+    </li>
+    <li>
+      <button @click="email()" aria-label="email">
+        <Icon kind="email" as="div" class="stroke-current text-white" />
+        <div class="link-label">Email</div>
+      </button>
+    </li>
+    <li>
+      <button @click="openCv()" aria-label="cv">
+        <Icon kind="news" as="div" class="stroke-current text-white" />
+        <div class="link-label">CV</div>
+      </button>
+    </li>
+  </ul>
 </template>
 
 <script setup>
-import { openUrl, call, email } from '../../utils/actions'
+import { openUrl, call, email, openCv} from '../../utils/actions'
 import Icon from '../atoms/Icon.vue'
 </script>
 
@@ -38,7 +46,7 @@ import Icon from '../atoms/Icon.vue'
 }
 
 button {
-  @apply pr-2 bg-transparent dark:bg-transparent shadow-none;
+  @apply pr-2 bg-transparent dark:bg-transparent shadow-none hover:bg-ab-primary hover:text-white w-full;
   :deep(svg) {
     @apply w-8 h-8 stroke-current p-1;
   }

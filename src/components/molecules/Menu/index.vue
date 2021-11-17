@@ -8,6 +8,6 @@
 </template>
 
 <script setup>
-import MenuDesktop from './MenuDesktop.vue'
-import MenuMobile from './MenuMobile.vue'
+import MenuDesktop from './Desktop.vue'
+import MenuMobile from './Mobile.vue'
 </script>
