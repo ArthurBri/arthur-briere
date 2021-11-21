@@ -39,16 +39,29 @@ export const skills = [
   { name: 'iview', label: 'iView', stars: 4 },
   { name: 'django', label: 'Django', stars: 2.5 },
   { name: 'jquery', label: 'jQuery', stars: 3 },
+  { name: 'firestore', label: 'Firestore' },
+  { name: 'netlify', label: 'Netlify' },
 ]
 
 export const projects = [
+  {
+    name: 'Vitess',
+    creationYear: '2020',
+    updateYear: '2021',
+    status: 'public',
+    description: `PWA de calcul de vitesse / distance / durée, avec modules de calcul pour entraînements sportifs. Refonte et déploiement en 2021.`,
+    url: 'http://vitess.app/',
+    repo: 'https://github.com/arthur-bri/vitess',
+    logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1637531356/logo-vitess.png',
+    tags: ['Vue 2', 'Firestore', 'Mongo DB', 'TailwindCSS', 'Heroku', 'PWA'],
+  },
   {
     name: 'Configurateur Guide Tiny House',
     creationYear: '2021',
     description: `Un configurateur qui propose en quelques clics un aperçu du coût d'une tiny house`,
     tags: ['React', 'Typescript', 'Styled Components'],
     url: 'https://configurateur.guide-tinyhouse.com/',
-    repo: 'https://github.com/ArthurBri/configurateur-tiny-house',
+    repo: 'https://github.com/arthur-bri/configurateur-tiny-house',
   },
   {
     name: 'Cat Name Creator',
@@ -57,7 +70,7 @@ export const projects = [
     tags: ['Vue 3', 'Typescript', 'Jest', 'TDD', 'TailwindCSS'],
     logo: 'https://raw.githubusercontent.com/ArthurBri/cat-name-creator/master/src/assets/images/kitty.svg',
     url: 'https://cat-name-creator.netlify.app/',
-    repo: 'https://github.com/ArthurBri/cat-name-creator',
+    repo: 'https://github.com/arthur-bri/cat-name-creator',
   },
   {
     name: 'Portfolio',
@@ -66,7 +79,7 @@ export const projects = [
     description: `Présentation de mon profil, de mes compétences et de ma philosophie`,
     tags: ['Vue 3', 'Typescript', 'TailwindCSS', 'Vite'],
     logo: false,
-    repo: 'https://github.com/ArthurBri/arthur-briere',
+    repo: 'https://github.com/arthur-bri/arthur-briere',
   },
   {
     name: 'Vinaigre',
@@ -91,17 +104,6 @@ export const projects = [
     description: `Projet d'entraînement : plateforme de vente de producteurs locaux à consommateurs`,
     logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1602745181/icon_coarni.png',
     tags: ['Vue 2', 'Nuxt', 'Strapi', 'Mongo DB', 'TailwindCSS', 'iView'],
-  },
-  {
-    name: 'MA Vitesse',
-    creationYear: '2020',
-    updateYear: '2021',
-    status: 'public',
-    description: `Outil de calcul intelligent de vitesse`,
-    url: 'http://ma-vitesse-dev.herokuapp.com/',
-    repo: 'https://github.com/ArthurBri/ma-vitesse',
-    logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_10/v1602744686/logo.2e3abfc1_rscrzc.svg',
-    tags: ['Vue 2', 'Mongo DB', 'TailwindCSS', 'Heroku', 'PWA'],
   },
   {
     name: 'Geckoop',
@@ -135,7 +137,7 @@ export const experiences = [
   {
     name: `Niji`,
     type: 'pro',
-    description: `Premiers pas en tant que développeur pendant 13 mois. Missions front et back de TMA pour un client du luxe et un site d'e-commerce pour une PME.`,
+    description: `Premiers pas en tant que développeur pendant 13 mois. Missions front et back de TMA pour un client du luxe et un site d'e-commerce d'une PME.`,
     tags: ['Professionnel'],
     year: 2021,
   },

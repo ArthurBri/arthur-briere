@@ -83,7 +83,7 @@ const tagNames = props.project?.tags.map((tag) => ({ name: findTagName(tag), lab
 }
 
 .project-card-overlay {
-  @apply absolute flex text-white m-4 p-2 items-center justify-center left-0 bottom-0 rounded-md right-0 h-16 bg-ab-primary bg-opacity-80 backdrop-blur-lg backdrop-saturate-200 opacity-0 transition-opacity;
+  @apply absolute flex text-white m-4 p-2 items-center justify-center left-0 bottom-0 rounded-md right-0 h-16 bg-ab-primary dark:bg-ab-gray bg-opacity-80 backdrop-blur-lg backdrop-saturate-200 opacity-0 transition-opacity;
 
   li {
     @apply hover:scale-110 transition-transform;
