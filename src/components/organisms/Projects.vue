@@ -1,13 +1,8 @@
 <template>
-  <!-- <div class="absolute h-full w-full left-0 top-0">
-    <ButterflyFleet :butterflies="butterflies" />
-  </div>-->
   <Section title="Projets" id="projects">
     <template v-slot:description>
       <ul class="flex relative overflow-auto mt-2 gap-2">
-        <li @click="projectYearFilter = null" :class="{ selected: !projectYearFilter }" class="relative filter-item cursor-pointer">
-          Tous
-        </li>
+        <li @click="projectYearFilter = ''" :class="{ selected: !projectYearFilter }" class="relative filter-item cursor-pointer">Tous</li>
         <li
           v-for="year in projectYears"
           :key="year"
@@ -31,7 +26,7 @@
       <transition-group
         name="projects-transition"
         tag="div"
-        class="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 px-2 justify-center content-start gap-8"
+        class="w-full grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 px-2 justify-center content-start"
       >
         <ProjectCard v-for="project in filteredProjects" :key="project.name" :project="project" />
       </transition-group>
@@ -39,24 +34,18 @@
   </Section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { computed, ref } from 'vue'
 import ProjectCard from '../molecules/ProjectCard.vue'
 import Section from '../organisms/Section.vue'
-import ButterflyFleet from '../organisms/ButterflyFleet.vue'
 import { projects } from '../../data'
 
-const projectYearFilter = ref(null)
+const projectYearFilter = ref<string>()
 const filteredProjects = computed(() =>
   projectYearFilter.value
     ? projects.filter((project) => [project.creationYear, project.updateYear].includes(projectYearFilter.value))
     : projects
 )
-
-const butterflies = [
-  { left: '100%', top: '35%', transform: 'rotateX(45deg)' },
-  { left: '20%', top: '55%' },
-]
 
 const projectYears = computed(() => [...new Set(projects.flatMap((project) => (project.creationYear ? [project.creationYear] : [])))])
 </script>

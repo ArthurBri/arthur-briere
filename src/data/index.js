@@ -45,13 +45,18 @@ export const skills = [
 
 export const projects = [
   {
+    name: 'Osmie',
+    creationYear: '2022',
+    status: 'public',
+  },
+  {
     name: 'Vitess',
     creationYear: '2020',
     updateYear: '2021',
     status: 'public',
     description: `PWA de calcul de vitesse / distance / durée, avec modules de calcul pour entraînements sportifs. Refonte et déploiement en 2021.`,
     url: 'http://vitess.app/',
-    repo: 'https://github.com/arthur-bri/vitess',
+    repoUrl: 'https://github.com/arthur-bri/vitess',
     logo: 'https://res.cloudinary.com/da4emp01n/image/upload/c_scale,w_200/v1637531356/logo-vitess.png',
     tags: ['Vue 2', 'Firestore', 'Mongo DB', 'TailwindCSS', 'Heroku', 'PWA'],
   },
@@ -61,7 +66,7 @@ export const projects = [
     description: `Un configurateur qui propose en quelques clics un aperçu du coût d'une tiny house`,
     tags: ['React', 'Typescript', 'Styled Components'],
     url: 'https://configurateur.guide-tinyhouse.com/',
-    repo: 'https://github.com/arthur-bri/configurateur-tiny-house',
+    repoUrl: 'https://github.com/arthur-bri/configurateur-tiny-house',
   },
   {
     name: 'Cat Name Creator',
@@ -70,7 +75,7 @@ export const projects = [
     tags: ['Vue 3', 'Typescript', 'Jest', 'TDD', 'TailwindCSS'],
     logo: 'https://raw.githubusercontent.com/ArthurBri/cat-name-creator/master/src/assets/images/kitty.svg',
     url: 'https://cat-name-creator.netlify.app/',
-    repo: 'https://github.com/arthur-bri/cat-name-creator',
+    repoUrl: 'https://github.com/arthur-bri/cat-name-creator',
   },
   {
     name: 'Portfolio',
@@ -79,7 +84,7 @@ export const projects = [
     description: `Présentation de mon profil, de mes compétences et de ma philosophie`,
     tags: ['Vue 3', 'Typescript', 'TailwindCSS', 'Vite'],
     logo: false,
-    repo: 'https://github.com/arthur-bri/arthur-briere',
+    repoUrl: 'https://github.com/arthur-bri/arthur-briere',
   },
   {
     name: 'Vinaigre',
@@ -134,6 +139,13 @@ export const projects = [
 ]
 
 export const experiences = [
+  {
+    name: `Fifteen`,
+    type: 'pro',
+    description: `Développeur front-end pour sur projets projets web, du site corporate à une application complexe de maintenance de flotte de vélos connectés.`,
+    tags: ['Professionnel'],
+    year: 2022,
+  },
   {
     name: `Niji`,
     type: 'pro',
@@ -202,13 +214,13 @@ export const values = [
 ]
 
 export const presentation = `
-<h1>Arthur, enchanté</h1>
-Je suis développeur web fullstack à aspiration front-end. Après un DUT informatique, je me suis éloigné de l'informatique pour y revenir en 2018 avec un premier emploi en ESN. Travaillant à haut niveau via l'utilisation d'un progiciel de CCM, j'ai progressivement mis les mains dans du Python, puis du Javascript. Après 1 année d'apprentissage en autonomie, je bascule sur un poste de développeur début 2021. <br/><br/>En évoluant sur de nombreux petits et moyens side-projects, je progresse à ma manière et en continu, en touchant un peu à tout, tout en essayant d'être le plus pointu possible. Je n'hésite pas à tout remettre en question quand il s'agit de rendre les choses plus propres et durables.
-<br /><br />Depuis plus de 3 ans, j'évolue dans des ESN dans sur sujets variés et intéressants tant sur la relation client, le chiffrage ou l'accompagnement de personnes moins expérimentés. Rien ne me passionne plus que de chercher à améliorer les choses en place, et j'adore avoir la liberté de le faire.
+<h1>Ravi de vous rencontrer</h1>
+Je suis développeur web fullstack à aspiration front-end. Après un DUT informatique, je me suis éloigné de l'informatique pour y revenir en 2018 avec un premier emploi en ESN. Travaillant à haut niveau via l'utilisation d'un progiciel de CCM, j'ai progressivement mis les mains dans du Python, puis du Javascript. Après 18 mois d'apprentissage en autonomie, je bascule sur un poste de développeur début 2021. <br/><br/>En évoluant sur de nombreux petits et moyens side-projects, je progresse à ma manière et en continu, en touchant un peu à tout, tout en essayant d'être le plus pointu possible. Je n'hésite pas à tout remettre en question quand il s'agit de rendre les choses plus propres et durables.
+<br /><br />Pendant plus de 3 ans, j'ai évolué dans des ESN sur des sujets variés et intéressants, tant sur la relation client, le chiffrage ou l'accompagnement de profils moins expérimentés. Rien ne m'intéresse plus que de chercher à améliorer les choses en place, et j'adore avoir la liberté de le faire.
 <br /><br />
 `
 
 export const presentation2 = `
-Parce qu'il n'y a pas que la tech, j'aime le vélo, la course à pied, faire de la photo, et vadrouiller en train ou en van (aménagé par mes soins). J'aime apprendre des choses en tout genre, dans des domaines assez variés.
+Parce qu'il n'y a pas que la tech, j'aime la course à pied, la photo, le vélo, et vadrouiller en train ou dans mon van aménagé). J'aime apprendre des choses en tout genre, dans des domaines variés.
 <br />
 `

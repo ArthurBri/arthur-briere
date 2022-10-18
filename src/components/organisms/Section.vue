@@ -1,11 +1,9 @@
 <template>
-  <section class="flex flex-col lg:flex-row gap-10" :class="{ 'lg:flex-row-reverse': order === 'reverse' }" :id="id">
-    <div class="flex flex-col lg:w-1/3 relative">
-      <div class="sticky top-0">
-        <h1 class="section-title" @click="handleSectionTitleClick" :class="sectionTitleActive && 'is-active'">{{ title }}</h1>
-        <div class="flex flex-col relative w-full pb-4 md:pb-0">
-          <slot name="description" />
-        </div>
+  <section class="flex flex-col justify-center items-center relative w-2/3" :id="id">
+    <div class="flex flex-col justify-center items-center">
+      <h1 class="section-title" @click="handleSectionTitleClick" :class="sectionTitleActive && 'is-active'">{{ title }}</h1>
+      <div class="flex flex-col relative w-full pb-4 md:pb-0">
+        <slot name="description" />
       </div>
     </div>
     <slot name="items" />
@@ -16,10 +14,6 @@
 import { ref } from 'vue'
 
 const props = defineProps({
-  order: {
-    type: String,
-    enum: ['normal', 'reverse'],
-  },
   id: String,
   title: String,
 })

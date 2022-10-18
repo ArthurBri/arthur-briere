@@ -85,9 +85,10 @@ h1 {
 }
 
 button {
+  padding: 0;
   @media (pointer: none) {
-    @apply hover:bg-ab-primary hover:text-white;
+    @apply hover:bg-white hover:text-white;
   }
 
-  @apply flex items-center gap-2 justify-between bg-white dark:bg-gray-200 rounded-xl dark:text-ab-primary transition-all shadow-ab duration-300 py-1;
+  @apply flex items-center justify-between rounded-full dark:text-white transition-all duration-300 p-1;
 }

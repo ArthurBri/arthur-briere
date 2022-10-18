@@ -17,8 +17,8 @@ module.exports = {
         sora: ['Sora'],
       },
       colors: {
-        'ab-primary': teal['800'],
-        'ab-gray': '#233140',
+        'ab-primary': '#893947',
+        'ab-gray': '#893947',
       },
       opacity: {
         85: '0.85',
@@ -29,8 +29,7 @@ module.exports = {
       },
       borderRadius: {
         4: '4%',
-        
-      }
+      },
     },
   },
   variants: {},

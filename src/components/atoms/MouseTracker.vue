@@ -47,7 +47,7 @@ const handleKeyPress = () => {
 <style scoped>
 @media (pointer: fine) {
   .mouse {
-    @apply h-6 w-6 absolute rounded-full ring-2 ring-ab-primary;
+    @apply h-6 w-6 absolute rounded-full ring-2 ring-ab-primary dark:ring-white;
   }
 }
 
