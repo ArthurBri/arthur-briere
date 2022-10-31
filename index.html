@@ -2,14 +2,59 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Portfolio d'Arthur Brière, développeur web" />
-    <title>Arthur Brière</title>
-    <script defer data-domain="arthur-briere.me" src="https://plausible.io/js/plausible.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sora" />
+    <title>Maintenance</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <div class="anouncement">
+      <h1>Portfiolio under maintenance</h1>
+    </div>
+    <div class="chip">Coming soon <span class="chip__icon">🧑‍💻</span></div>
   </body>
 </html>
+
+<style>
+  html {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: rgba(31, 41, 55);
+    color: #fff;
+    font-family: Sora;
+  }
+
+  .anouncement {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .chip {
+    display: flex;
+    align-items: center;
+    background: white;
+    color: black;
+    border-radius: 4rem;
+    padding: 0 1rem;
+    box-shadow: 0 0 4px 0 lightgray;
+  }
+
+  .chip__icon {
+    font-size: 2rem;
+    margin: 0.25rem 0;
+    margin-left: 1rem;
+  }
+</style>
